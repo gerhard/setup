@@ -1,0 +1,212 @@
+#!/bin/bash -e
+
+[ -z "$DEBUG" ] || set -x
+
+ME="$USER"
+MY_HOSTNAME="eve"
+HOMEBREW_FORMULAS=(
+  ansible
+  cmake
+  ctags
+  docker
+  git
+  go
+  htop
+  ipcalc
+  mercurial
+  pwgen
+  rbenv
+  reattach-to-user-namespace
+  ruby-build
+  the_silver_searcher
+  tig
+  tmux
+  tree
+  vim
+  watch
+)
+HOMEBREW_CASKS=(
+  alfred
+  appcleaner
+  google-chrome
+  istat-menus
+  iterm2
+  macvim
+  mplayerx
+  sizeup
+  skype
+  vagrant
+  virtualbox
+  waltr
+)
+
+main() {
+  request_sudo_privileges
+  preserve_sudo_privileges_until_exit
+  link_dotfiles
+  source_shell_profile
+  symlink_downloads_to_desktop
+  configure_dock
+  configure_hot_corners
+  set_machine_name
+  install_homebrew
+  install_homebrew_cask
+  install_homebrew_formulas
+  install_homebrew_casks
+  setup_go
+  setup_htop
+  setup_vim_vundle
+  setup_you_complete_me
+  success
+}
+
+request_sudo_privileges() {
+  sudo -v
+}
+
+preserve_sudo_privileges_until_exit() {
+  while sleep 10
+  do
+    sudo -v 2>&-
+  done &
+
+  SUDO_GUARDIAN_PID="$!"
+}
+
+configure_dock() {
+  defaults write com.apple.dock mouse-over-hilite-stack -bool true
+  defaults write com.apple.dock tilesize -int 64
+  defaults write com.apple.dock mineffect -string "scale"
+  defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+  defaults write com.apple.dock autohide-delay -float 0
+  defaults write com.apple.dock autohide-time-modifier -float 0
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock expose-animation-duration -float 0.1
+  killall Dock >&-
+}
+
+configure_hot_corners() {
+  defaults write com.apple.dock wvous-br-corner -int 5
+  defaults write com.apple.dock wvous-br-modifier -int 0
+}
+
+symlink_downloads_to_desktop() {
+  pushd $HOME >&-
+    if [ ! -L Downloads ] 
+    then
+      mv Downloads/* Desktop/
+      sudo rm -fR Downloads
+      ln -s Desktop Downloads
+    fi
+  popd >&-
+}
+
+set_machine_name() {
+  local hostname="${MY_HOSTNAME:?must be defined}"
+
+  sudo scutil --set HostName $hostname
+  sudo scutil --set LocalHostName $hostname
+  sudo scutil --set ComputerName $hostname
+  dscacheutil -flushcache
+}
+
+setup_vim_vundle() {
+  mkdir -p $HOME/.vim/bundle
+  pushd $HOME/.vim/bundle >&-
+    if [ ! -d Vundle.vim ]
+    then
+      git clone https://github.com/gmarik/Vundle.vim
+      vim +PluginInstall +qall
+    fi
+  popd >&-
+}
+
+setup_you_complete_me() {
+  local ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
+  if [ -e "$ycm_dir" ]
+  then
+    pushd "$ycm_dir" >&-
+      [ -e .installed* ] || ./install.sh && touch .installed.$(date +"%Y%m%d")
+    popd >&-
+  fi
+}
+
+link_dotfiles() {
+  local dotfile
+  pushd user/dotfiles >&-
+    for dotfile in *
+    do
+      ln -nsf $PWD/$dotfile $HOME/.$dotfile
+    done
+  popd >&-
+}
+
+source_shell_profile() {
+  local shell_profile="${HOME}/.profile"
+
+  [ ! -e "$shell_profile" ] || . "$shell_profile"
+}
+
+install_homebrew() {
+  which brew >&- || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+install_homebrew_formulas() {
+  local formulas=${HOMEBREW_FORMULAS[@]:?must be defined}
+  local installed_formulas="$(brew list)"
+  local formula
+
+  for formula in ${formulas[@]}
+  do
+    grep "$formula" >&- <<< "$installed_formulas" || brew install "$formula"
+  done
+}
+
+install_homebrew_casks() {
+  local casks=${HOMEBREW_CASKS[@]:?must be defined}
+  local installed_casks="$(brew cask list)"
+  local cask
+
+  for cask in ${casks[@]}
+  do
+    grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
+  done
+}
+
+setup_go() {
+  go get golang.org/x/tools/cmd/vet
+  go get golang.org/x/tools/cmd/godoc
+}
+
+setup_htop() {
+  local htop_bins=$(find /usr/local/Cellar -name htop -perm +111 -type f)
+  local htop_bin
+
+  for htop_bin in ${htop_bins[@]}
+  do
+    sudo chown root:wheel "$htop_bin"
+    sudo chmod u+s "$htop_bin"
+  done
+}
+
+install_homebrew_cask() {
+  brew cask 2>&1 >&- || brew install caskroom/cask/brew-cask
+}
+
+success() {
+  local this_mac="${MY_HOSTNAME:?must be defined}"
+
+  echo "$this_mac is now yours"
+}
+
+cleanup() {
+ if [ -n "$SUDO_GUARDIAN_PID" ]
+ then
+    ! ps $SUDO_GUARDIAN_PID >&- || kill -PIPE $SUDO_GUARDIAN_PID
+ fi
+}
+
+trap cleanup EXIT
+
+main
+  setup_you_complete_me
