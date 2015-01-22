@@ -1,0 +1,9 @@
+if has("gui_macvim")
+  set guioptions=aAcet
+  set fuoptions=maxvert,maxhorz
+  set noballooneval
+
+  " Automatically resize splits
+  " when resizing MacVim window
+  autocmd VimResized * wincmd =
+end

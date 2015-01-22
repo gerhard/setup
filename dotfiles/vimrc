@@ -1,0 +1,254 @@
+set nocompatible " be iMproved, required
+filetype off " filetype rules caching interfere with vundle
+
+" set the runtime path to include Vundle & initialize Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+" Universal set of vim defaults that everyone can agree on
+Plugin 'tpope/vim-sensible'
+" All the surrounding motion keys that you know and love
+Plugin 'tpope/vim-surround'
+" A Git wrapper so awesome, it should be illegal
+Plugin 'tpope/vim-fugitive'
+" Lean & mean status/tabline for vim that's light as air
+Plugin 'bling/vim-airline'
+" Runs files through external syntax checkers and displays any resulting errors
+Plugin 'scrooloose/syntastic'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'kien/ctrlp.vim'
+" Ends certain structures automatically
+Plugin 'tpope/vim-endwise'
+" Remaps . in a way that plugins can tap into
+Plugin 'tpope/vim-repeat'
+" Comment stuff out
+Plugin 'tpope/vim-commentary'
+" Async build and test dispatcher
+Plugin 'tpope/vim-dispatch'
+" Code-completion engine for vim
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'fatih/vim-go'
+
+Plugin 'majutsushi/tagbar'
+
+Plugin 'sjl/gundo.vim'
+
+Plugin 'godlygeek/tabular'
+
+Plugin 'plasticboy/vim-markdown'
+" Silver searcher, the ack replacement
+Plugin 'rking/ag.vim'
+" The one and only colour scheme
+Plugin 'tomasr/molokai'
+" Lightweight support for Ruby's bundler
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/rbenv-ctags'
+" Alternate between relative numbering and absolute numbering
+Plugin 'myusuf3/numbers.vim'
+call vundle#end()
+
+" Additions from http://mislav.uniqpath.com/2011/12/vim-revisited/
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set hlsearch                    " highlight matches
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
+" Additions from http://c7.se/switching-to-vundle/
+filetype plugin indent on
+set cursorline
+set modelines=0
+set clipboard=unnamedplus
+set synmaxcol=128
+set ttyscroll=10
+set number
+set nowritebackup
+set noswapfile
+set nobackup
+set colorcolumn=80
+
+let mapleader=","
+
+let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary
+set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
+  colorscheme molokai
+endif
+
+nmap <leader>n :NERDTreeToggle<cr>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['tmp', 'pkg']
+
+" CtrlP configuration
+let g:ctrlp_by_filename = 1
+" No max file limit
+let g:ctrlp_max_files = 0
+" Set the working directory
+let g:ctrlp_working_path_mode = 'ra'
+" c - the directory of the current file
+" r - the nearest ancestor that contains one of these directories or files: .git .hg .svn .bzr _darcs
+" a - like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file
+" 0 or '' (empty string) - disable this feature
+" Exclude files and directories
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](tmp|bundle|vendor)$',
+  \ 'file': '\v\.(swp)$',
+  \ }
+
+" Comment lines
+map <D-/> :Commentary<cr>
+
+" Automatic formatting
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.haml :%s/\s\+$//e
+autocmd BufWritePre *.html :%s/\s\+$//e
+autocmd BufWritePre *.scss :%s/\s\+$//e
+autocmd BufWritePre *.slim :%s/\s\+$//e
+
+" Do not add newline at end of files
+au BufNewFile * set noeol
+
+" Auto save on losing focus
+au FocusLost * :wa
+
+fu! Searching()
+  " Normalise regexes
+  nnoremap / /\v
+  vnoremap / /\v
+
+  " Searches are global by default
+  set gdefault
+
+  " Clear search once done
+  nnoremap <leader><space> :noh<cr>
+endfu
+call Searching()
+
+fu! Splits()
+  " Whenever a new split opens, equalize all
+  set equalalways
+
+  " Navigate splits
+  map <C-J> <C-W>j
+  map <D-M-Down> <C-W>j
+  map <C-H> <C-W>h
+  map <D-M-Left> <C-W>h
+  map <C-L> <C-W>l
+  map <D-M-Right> <C-W>l
+  map <C-K> <C-W>k
+  map <D-M-Up> <C-W>k
+
+  " Create a vertical split and start using it
+  nnoremap <leader>w <C-w>v<C-w>l
+  " Create a horizontal split and start using it
+  nnoremap <leader>s <C-w>s<C-w>j
+
+  " Minimize vertical splits
+  set winminwidth=0
+  nmap <Leader>h <C-W>h500<C-W>>
+  nmap <Leader>l <C-W>l500<C-W>>
+
+  " When closing a split, delete the buffer
+  map <D-w> :bd<cr>
+endfu
+call Splits()
+
+fu! Tabs()
+  " Quickly switch between tabs
+  map <S-D-Right> :tabn<cr>
+  map <S-D-Left> :tabp<cr>
+  map <D-1> 1gt
+  map <D-2> 2gt
+  map <D-3> 3gt
+  map <D-4> 4gt
+  map <D-5> 5gt
+  map <D-6> 6gt
+  map <D-7> 7gt
+  map <D-8> 8gt
+  map <D-9> 9gt
+endfu
+call Tabs()
+
+fu! Navigation()
+  " Use tab to match bracket pairs
+  nnoremap <tab> %
+  vnoremap <tab> %
+
+  " Use tab to navigate between blocks
+  " nmap <tab> %
+  " vmap <tab> %
+endfu
+call Navigation()
+
+" Select the text that was just pasted
+nnoremap <leader>V V`]
+
+" Reload vimrc whenever it changes
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+fu! CustomFileTypes()
+  au BufRead,BufNewFile {Guardfile} set ft=ruby
+  au BufRead,BufNewFile {Vagrantfile} set ft=ruby
+  au BufRead,BufNewFile {Dockerfile} set ft=sh
+endfu
+call CustomFileTypes()
+
+" Quickly clear highlighted words
+nnoremap <leader><space> :noh<cr>
+
+fu! Golang()
+  au BufRead,BufNewFile *.go set ft=go
+  autocmd BufWritePre *.go :%s/\s\+$//e
+  au Filetype go nnoremap <leader>r :GoRun %<cr>
+endfu
+call Golang()
+
+" ctags goodness
+nnoremap <leader>t :TagbarToggle<cr>
+nnoremap <c-l> :CtrlPTag<cr>
+" Install go get -u github.com/jstemmer/gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }

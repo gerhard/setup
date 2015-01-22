@@ -1,0 +1,21 @@
+[user]
+  name = Gerhard Lazu
+  email = gerhard@lazu.co.uk
+[github]
+  user = gitconfig
+  token = token
+[credential]
+  helper = osxkeychain
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[pack]
+  threads = 0
+[push]
+  default = tracking
+[branch "master"]
+  mergeoptions = --no-ff
+[core]
+  excludesfile = /Users/gerhard/.gitignore

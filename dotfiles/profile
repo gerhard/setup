@@ -1,0 +1,14 @@
+alias m=mvim
+export EDITOR=vim
+
+alias g=git
+alias t="tig --all"
+
+alias v=vagrant
+alias d=docker
+
+export GOPATH="${HOME}/go"
+export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
+
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
