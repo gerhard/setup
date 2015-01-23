@@ -155,7 +155,7 @@ link_dotfiles() {
   pushd user/dotfiles >&-
     for dotfile in *
     do
-      ln -nsf $PWD/$dotfile $HOME/.$dotfile
+      ln -nsf "${PWD}/${dotfile}" "${HOME}/.${dotfile}"
     done
   popd >&-
 }
