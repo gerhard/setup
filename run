@@ -56,6 +56,7 @@ main() {
   install_homebrew
   install_homebrew_cask
   install_homebrew_formulas
+  setup_fonts
   install_homebrew_casks
   install_go_packages
   setup_htop
@@ -137,6 +138,16 @@ setup_you_complete_me() {
       fi
     popd >&-
   fi
+}
+
+setup_fonts() {
+  pushd osx/fonts >&-
+    local font
+    for font in *
+    do
+      ln -nsf "${PWD}/${font}" "${HOME}/Library/Fonts/${font}"
+    done
+  popd >&-
 }
 
 link_dotfiles() {
