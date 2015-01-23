@@ -126,7 +126,11 @@ setup_you_complete_me() {
   if [ -e "$ycm_dir" ]
   then
     pushd "$ycm_dir" >&-
-      [ -e .installed* ] || ./install.sh && touch .installed.$(date +"%Y%m%d")
+      if ! ls .installed* >&- 2>&-
+      then
+        ./install.sh
+        touch .installed.$(date +"%Y%m%d")
+      fi
     popd >&-
   fi
 }
