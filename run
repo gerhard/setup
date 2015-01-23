@@ -4,7 +4,7 @@
 
 ME="$USER"
 MY_HOSTNAME="eve"
-HOMEBREW_FORMULAS=(
+HOMEBREW_FORMULAE=(
   ansible
   cmake
   ctags
@@ -55,7 +55,7 @@ main() {
   set_machine_name
   install_homebrew
   install_homebrew_cask
-  install_homebrew_formulas
+  install_homebrew_formulae
   setup_fonts
   install_homebrew_casks
   install_go_packages
@@ -170,14 +170,14 @@ install_homebrew() {
   which brew >&- || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-install_homebrew_formulas() {
-  local formulas=${HOMEBREW_FORMULAS[@]:?must be defined}
-  local installed_formulas="$(brew list)"
+install_homebrew_formulae() {
+  local formulae=${HOMEBREW_FORMULAE[@]:?must be defined}
+  local installed_formulae="$(brew list)"
   local formula
 
-  for formula in ${formulas[@]}
+  for formula in ${formulae[@]}
   do
-    grep "$formula" >&- <<< "$installed_formulas" || brew install "$formula"
+    grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
   done
 }
 
