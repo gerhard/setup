@@ -4,48 +4,10 @@
 
 ME="$USER"
 MY_HOSTNAME="eve"
-HOMEBREW_FORMULAE=(
-  ansible
-  cmake
-  ctags
-  docker
-  git
-  go
-  htop
-  ipcalc
-  mercurial
-  pwgen
-  rbenv
-  reattach-to-user-namespace
-  ruby-build
-  the_silver_searcher
-  tig
-  tmux
-  tree
-  vim
-  watch
-)
-HOMEBREW_CASKS=(
-  alfred
-  appcleaner
-  google-chrome
-  istat-menus
-  iterm2
-  macvim
-  mplayerx
-  sizeup
-  skype
-  vagrant
-  virtualbox
-  waltr
-)
+
 GO_PACKAGES=(
   golang.org/x/tools/cmd/vet
   golang.org/x/tools/cmd/godoc
-)
-FONTS=(
-  font-fira-mono-for-powerline
-  font-meslo-lg-for-powerline
 )
 
 main() {
@@ -151,13 +113,14 @@ setup_homebrew_fonts_support() {
 
 install_fonts() {
   local installed_casks="$(brew cask list)"
-  local fonts=${FONTS[@]:?must be defined}
   local font
 
-  for font in ${fonts[@]}
-  do
-    grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
-  done
+  pushd brew/fonts >&-
+    for font in *
+    do
+      grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
+    done
+  popd >&-
 }
 
 link_dotfiles() {
@@ -181,25 +144,27 @@ install_homebrew() {
 }
 
 install_homebrew_formulae() {
-  local formulae=${HOMEBREW_FORMULAE[@]:?must be defined}
   local installed_formulae="$(brew list)"
   local formula
 
-  for formula in ${formulae[@]}
-  do
-    grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
-  done
+  pushd brew/formulae >&-
+    for formula in *
+    do
+      grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
+    done
+  popd >&-
 }
 
 install_homebrew_casks() {
-  local casks=${HOMEBREW_CASKS[@]:?must be defined}
   local installed_casks="$(brew cask list)"
   local cask
 
-  for cask in ${casks[@]}
-  do
-    grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
-  done
+  pushd brew/casks >&-
+    for cask in *
+    do
+      grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
+    done
+  popd >&-
 }
 
 install_go_packages() {
@@ -230,7 +195,7 @@ install_homebrew_cask() {
 success() {
   local this_mac="${MY_HOSTNAME:?must be defined}"
 
-  echo "$this_mac is now yours"
+  echo -e "\n$this_mac is now yours\n"
 }
 
 cleanup() {
