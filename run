@@ -43,6 +43,10 @@ GO_PACKAGES=(
   golang.org/x/tools/cmd/vet
   golang.org/x/tools/cmd/godoc
 )
+FONTS=(
+  font-fira-mono-for-powerline
+  font-meslo-lg-for-powerline
+)
 
 main() {
   request_sudo_privileges
@@ -56,7 +60,8 @@ main() {
   install_homebrew
   install_homebrew_cask
   install_homebrew_formulae
-  setup_fonts
+  setup_homebrew_fonts_support
+  install_fonts
   install_homebrew_casks
   install_go_packages
   setup_htop
@@ -140,14 +145,19 @@ setup_you_complete_me() {
   fi
 }
 
-setup_fonts() {
-  pushd osx/fonts >&-
-    local font
-    for font in *
-    do
-      ln -nsf "${PWD}/${font}" "${HOME}/Library/Fonts/${font}"
-    done
-  popd >&-
+setup_homebrew_fonts_support() {
+  grep fonts >&- <<< $(brew tap) || brew tap caskroom/fonts
+}
+
+install_fonts() {
+  local installed_casks="$(brew cask list)"
+  local fonts=${FONTS[@]:?must be defined}
+  local font
+
+  for font in ${fonts[@]}
+  do
+    grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
+  done
 }
 
 link_dotfiles() {
@@ -214,7 +224,7 @@ setup_htop() {
 }
 
 install_homebrew_cask() {
-  brew cask 2>&1 >&- || brew install caskroom/cask/brew-cask
+  grep cask >&- <<< $(brew cask) || brew install caskroom/cask/brew-cask
 }
 
 success() {
