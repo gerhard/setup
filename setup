@@ -129,7 +129,7 @@ install_fonts() {
   local installed_casks="$(brew cask list)"
   local font
 
-  pushd brew/fonts >&-
+  pushd homebrew/fonts >&-
     for font in *
     do
       grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
@@ -161,7 +161,7 @@ install_homebrew_formulae() {
   local installed_formulae="$(brew list)"
   local formula
 
-  pushd brew/formulae >&-
+  pushd homebrew/formulae >&-
     for formula in *
     do
       grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
@@ -173,7 +173,7 @@ install_homebrew_casks() {
   local installed_casks="$(brew cask list)"
   local cask
 
-  pushd brew/casks >&-
+  pushd homebrew/casks >&-
     for cask in *
     do
       grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
