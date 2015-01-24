@@ -12,22 +12,34 @@ GO_PACKAGES=(
 main() {
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
+
+  # user
   link_dotfiles
   source_shell_profile
+
+  # os x
+  set_hostname
   symlink_downloads_to_desktop
   configure_dock
   configure_hot_corners
-  set_hostname
+
+  # homebrew
   install_homebrew
-  install_homebrew_cask
+  # install_homebrew_taps
   install_homebrew_formulae
+  setup_htop
+  install_homebrew_cask
+  install_homebrew_casks
   setup_homebrew_fonts_support
   install_fonts
-  install_homebrew_casks
+
+  # go
   install_go_packages
-  setup_htop
+
+  # vim
   setup_vim_vundle
   setup_you_complete_me
+
   success
 }
 
