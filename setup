@@ -4,11 +4,6 @@
 
 MY_HOSTNAME="$1"
 
-GO_PACKAGES=(
-  golang.org/x/tools/cmd/vet
-  golang.org/x/tools/cmd/godoc
-)
-
 main() {
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
@@ -182,13 +177,14 @@ install_homebrew_casks() {
 }
 
 install_go_packages() {
-  local pkgs=${GO_PACKAGES[@]:?must be defined}
   local pkg
 
-  for pkg in ${pkgs[@]}
-  do
-    go get $pkg
-  done
+  pushd go/packages >&-
+    for pkg in *
+    do
+      go get ${pkg//\~/\/}
+    done
+  popd >&-
 }
 
 setup_htop() {
