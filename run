@@ -2,8 +2,7 @@
 
 [ -z "$DEBUG" ] || set -x
 
-ME="$USER"
-MY_HOSTNAME="eve"
+MY_HOSTNAME="$1"
 
 GO_PACKAGES=(
   golang.org/x/tools/cmd/vet
@@ -18,7 +17,7 @@ main() {
   symlink_downloads_to_desktop
   configure_dock
   configure_hot_corners
-  set_machine_name
+  set_hostname
   install_homebrew
   install_homebrew_cask
   install_homebrew_formulae
@@ -73,13 +72,16 @@ symlink_downloads_to_desktop() {
   popd >&-
 }
 
-set_machine_name() {
-  local hostname="${MY_HOSTNAME:?must be defined}"
+set_hostname() {
+  local hostname="$MY_HOSTNAME"
 
-  sudo scutil --set HostName $hostname
-  sudo scutil --set LocalHostName $hostname
-  sudo scutil --set ComputerName $hostname
-  dscacheutil -flushcache
+  if [ -n "$MY_HOSTNAME" ]
+  then
+    sudo scutil --set HostName $hostname
+    sudo scutil --set LocalHostName $hostname
+    sudo scutil --set ComputerName $hostname
+    dscacheutil -flushcache
+  fi
 }
 
 setup_vim_vundle() {
@@ -193,9 +195,7 @@ install_homebrew_cask() {
 }
 
 success() {
-  local this_mac="${MY_HOSTNAME:?must be defined}"
-
-  echo -e "\n$this_mac is now yours\n"
+  echo -e "\nI am yours, ${USER}\n"
 }
 
 cleanup() {
