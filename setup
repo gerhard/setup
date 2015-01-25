@@ -70,7 +70,6 @@ symlink_downloads_to_desktop() {
   pushd $HOME >&-
     if [ ! -L Downloads ]
     then
-      mv Downloads/* Desktop/
       sudo rm -fR Downloads
       ln -s Desktop Downloads
     fi
