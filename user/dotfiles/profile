@@ -13,9 +13,9 @@ export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
 export RBENV_ROOT=/usr/local/var/rbenv
 ! which rbenv >&- || eval "$(rbenv init -)"
 
-syncr() {
-  local from="${1:?must be defined}"
-  local to="${2:?must be defined}"
+backup() {
+  local from="${1:?which path do you want to backup?}"
+  local to="${2:?where do you $from backing up to?}"
 
   rsync --update --times --recursive --links --delete\
         --verbose --progress --human-readable \
