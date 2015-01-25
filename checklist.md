@@ -1,4 +1,4 @@
-[ ] Run ./setup [preferred-hostname]
+[] Run ./setup [preferred-hostname]
 
 
 
