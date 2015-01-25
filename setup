@@ -175,7 +175,7 @@ install_go_packages() {
   pushd go/packages >&-
     for pkg in *
     do
-      go get ${pkg//\~/\/}
+      go get ${pkg//\~//}
     done
   popd >&-
 }
@@ -198,7 +198,7 @@ install_homebrew_taps() {
     local tap
     for tap in *
     do
-      tap="${tap//\~/\/}"
+      tap="${tap//\~//}"
       grep "$tap" >&- <<< "$installed_taps" || brew tap "$tap"
     done
   popd >&-
