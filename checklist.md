@@ -1,4 +1,4 @@
-[] Run ./setup [preferred-hostname]
+- [ ] Run ./setup [preferred-hostname]
 
 
 
@@ -6,8 +6,8 @@
 
 ## Alfred
 
-[ ] Add license
-[ ] Configure Hotkey (potentially remap Spotlight Hotkey)
+- [ ] Add license
+- [ ] Configure Hotkey (potentially remap Spotlight Hotkey)
 
 ## Google Chrome
 
