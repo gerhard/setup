@@ -1,44 +1,25 @@
-- [ ] Run ./setup [preferred-hostname]
+- [ ] run ./setup [preferred-hostname]
 
+- [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
 
+- [ ] add VPN connection
+- [ ] set VPN as the first network interface
 
-# Casks
+- [ ] restore Photos from backup
+- [ ] restore Music from backup
+- [ ] restore Documents from backup
+- [ ] restore Desktop from backup
+- [ ] restore Downloads from backup
+- [ ] restore Stickies.db from backup
+- [ ] personalise Desktop wallpaper
+- [ ] add Google Calendar feed to Calendar
 
-## Alfred
+- [ ] add Alfred license
+- [ ] configure Alfred Hotkey (potentially remap Spotlight Hotkey)
+- [ ] add iStat Menus license
+- [ ] configure iStat Menus
+- [ ] configure iTerm to use your Powerline font of choice
+- [ ] add SizeUp license
+- [ ] Skype login &amp; **Sign me in when Skype starts**
 
-- [ ] Add license
-- [ ] Configure Hotkey (potentially remap Spotlight Hotkey)
-
-## Google Chrome
-
-- [ ] Login with Google account (bookmarks, tabs & addons will be sync-ed)
-
-## iStat Menus
-
-- [ ] Add license
-- [ ] Configure
-
-## iTerm
-
-- [ ] Configure to use your Powerline font of choice
-
-## SizeUp
-
-- [ ] Add license
-
-## Skype
-
-- [ ] Login & check **Sign me in when Skype starts**
-
-
-
-# App Store
-
-- [ ] Install required apps from the **Purchases** tab
-
-
-
-# VPN
-
-- [ ] Configure VPN connection from Network Preferences
-- [ ] **Set Service Order** and make it the first item in the interfaces
+- [ ] install apps from the App Store **Purchases**
