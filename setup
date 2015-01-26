@@ -9,7 +9,7 @@ main() {
   preserve_sudo_privileges_until_exit
 
   # user
-  link_dotfiles
+  . libexec/link_dotfiles
   source_shell_profile
 
   # os x
@@ -121,16 +121,6 @@ install_fonts() {
     for font in *
     do
       grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
-    done
-  popd >&-
-}
-
-link_dotfiles() {
-  local dotfile
-  pushd user/dotfiles >&-
-    for dotfile in *
-    do
-      ln -nsf "${PWD}/${dotfile}" "${HOME}/.${dotfile}"
     done
   popd >&-
 }
