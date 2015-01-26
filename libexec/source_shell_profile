@@ -1,0 +1,5 @@
+#!/bin/bash
+
+shell_profile="${HOME}/.profile"
+
+[ ! -e "$shell_profile" ] || . "$shell_profile"

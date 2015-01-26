@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pushd $HOME >&-
+  if [ ! -L Downloads ]
+  then
+    sudo rm -fR Downloads
+    ln -s Desktop Downloads
+  fi
+popd >&-

@@ -7,16 +7,7 @@ MY_HOSTNAME="$1"
 main() {
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
-
-  # user
-  . libexec/link_dotfiles
-  source_shell_profile
-
-  # os x
-  set_hostname
-  symlink_downloads_to_desktop
-  configure_dock
-  configure_hot_corners
+  load_all_configs
 
   # homebrew
   install_homebrew
@@ -33,6 +24,7 @@ main() {
   setup_vim_vundle
   setup_you_complete_me
 
+  reload_modified_services
   success
 }
 
@@ -49,43 +41,15 @@ preserve_sudo_privileges_until_exit() {
   SUDO_GUARDIAN_PID="$!"
 }
 
-configure_dock() {
-  defaults write com.apple.dock mouse-over-hilite-stack -bool true
-  defaults write com.apple.dock tilesize -int 64
-  defaults write com.apple.dock mineffect -string "scale"
-  defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
-  defaults write com.apple.dock autohide-delay -float 0
-  defaults write com.apple.dock autohide-time-modifier -float 0
-  defaults write com.apple.dock autohide -bool true
-  defaults write com.apple.dock expose-animation-duration -float 0.1
-  killall Dock >&-
-}
+load_all_configs() {
+  local config
 
-configure_hot_corners() {
-  defaults write com.apple.dock wvous-br-corner -int 5
-  defaults write com.apple.dock wvous-br-modifier -int 0
-}
-
-symlink_downloads_to_desktop() {
-  pushd $HOME >&-
-    if [ ! -L Downloads ]
-    then
-      sudo rm -fR Downloads
-      ln -s Desktop Downloads
-    fi
+  pushd libexec >&-
+    for config in *
+    do
+      . "$config"
+    done
   popd >&-
-}
-
-set_hostname() {
-  local hostname="$MY_HOSTNAME"
-
-  if [ -n "$MY_HOSTNAME" ]
-  then
-    sudo scutil --set HostName $hostname
-    sudo scutil --set LocalHostName $hostname
-    sudo scutil --set ComputerName $hostname
-    dscacheutil -flushcache
-  fi
 }
 
 setup_vim_vundle() {
@@ -123,12 +87,6 @@ install_fonts() {
       grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
     done
   popd >&-
-}
-
-source_shell_profile() {
-  local shell_profile="${HOME}/.profile"
-
-  [ ! -e "$shell_profile" ] || . "$shell_profile"
 }
 
 install_homebrew() {
@@ -194,6 +152,15 @@ install_homebrew_taps() {
   popd >&-
 }
 
+reload_modified_services() {
+  local modified_services=${RELOAD_SERVICES[@]:?must be defined}
+  local modified_services_uniq=(
+    $(printf "%s\n" ${modified_services[@]} | sort -u)
+  )
+
+  killall ${modified_services_uniq[@]}
+}
+
 success() {
   echo -e "\nI am yours, ${USER}\n"
 }
@@ -208,4 +175,3 @@ cleanup() {
 trap cleanup EXIT
 
 main
-  setup_you_complete_me
