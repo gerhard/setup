@@ -3,6 +3,7 @@
 [ -z "$DEBUG" ] || set -x
 
 MY_HOSTNAME="$1"
+RELOAD_SERVICES=()
 
 main() {
   request_sudo_privileges
