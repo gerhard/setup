@@ -63,7 +63,7 @@ set smartcase                   " ... unless they contain at least one capital l
 filetype plugin indent on
 set cursorline
 set modelines=0
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 set synmaxcol=128
 set ttyscroll=10
 set number
