@@ -1,0 +1,10 @@
+#!/bin/bash
+
+installed_casks="$(brew cask list)"
+
+pushd "${BASE_PATH}/homebrew/casks" >&-
+  for cask in *
+  do
+    grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
+  done
+popd >&-

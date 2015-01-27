@@ -1,0 +1,9 @@
+#!/bin/bash
+
+htop_bins=$(find /usr/local/Cellar -name htop -perm +111 -type f)
+
+for htop_bin in ${htop_bins[@]}
+do
+  sudo chown root:wheel "$htop_bin"
+  sudo chmod u+s "$htop_bin"
+done

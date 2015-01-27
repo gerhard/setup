@@ -11,12 +11,6 @@ main() {
   preserve_sudo_privileges_until_exit
   apply_configs
 
-  install_homebrew_taps
-  install_homebrew_formulae
-  setup_htop
-  install_homebrew_casks
-  install_fonts
-
   # go
   install_go_packages
 
@@ -93,42 +87,6 @@ setup_you_complete_me() {
   fi
 }
 
-install_fonts() {
-  local installed_casks="$(brew cask list)"
-  local font
-
-  pushd "${BASE_PATH}/homebrew/fonts" >&-
-    for font in *
-    do
-      grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
-    done
-  popd >&-
-}
-
-install_homebrew_formulae() {
-  local installed_formulae="$(brew list)"
-  local formula
-
-  pushd "${BASE_PATH}/homebrew/formulae" >&-
-    for formula in *
-    do
-      grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
-    done
-  popd >&-
-}
-
-install_homebrew_casks() {
-  local installed_casks="$(brew cask list)"
-  local cask
-
-  pushd "${BASE_PATH}/homebrew/casks" >&-
-    for cask in *
-    do
-      grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
-    done
-  popd >&-
-}
-
 install_go_packages() {
   local pkg
 
@@ -136,30 +94,6 @@ install_go_packages() {
     for pkg in *
     do
       go get ${pkg//\~//}
-    done
-  popd >&-
-}
-
-setup_htop() {
-  local htop_bins=$(find /usr/local/Cellar -name htop -perm +111 -type f)
-  local htop_bin
-
-  for htop_bin in ${htop_bins[@]}
-  do
-    sudo chown root:wheel "$htop_bin"
-    sudo chmod u+s "$htop_bin"
-  done
-}
-
-install_homebrew_taps() {
-  local installed_taps="$(brew tap)"
-
-  pushd "${BASE_PATH}/homebrew/taps" >&-
-    local tap
-    for tap in *
-    do
-      tap="${tap//\~//}"
-      grep "$tap" >&- <<< "$installed_taps" || brew tap "$tap"
     done
   popd >&-
 }
