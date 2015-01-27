@@ -67,11 +67,14 @@ load_all_configs() {
 }
 
 setup_vim_vundle() {
-  mkdir -p $HOME/.vim/bundle
-  pushd $HOME/.vim/bundle >&-
+  local vundle_bundle="${HOME}/.vim/bundle"
+  local vundle_repository="https://github.com/gmarik/Vundle.vim"
+
+  mkdir -p "$vundle_bundle"
+  pushd "$vundle_bundle" >&-
     if [ ! -d Vundle.vim ]
     then
-      git clone https://github.com/gmarik/Vundle.vim
+      git clone "$vundle_repository"
       vim +PluginInstall +qall
     fi
   popd >&-
@@ -79,6 +82,7 @@ setup_vim_vundle() {
 
 setup_you_complete_me() {
   local ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
+
   if [ -e "$ycm_dir" ]
   then
     pushd "$ycm_dir" >&-
@@ -95,7 +99,7 @@ install_fonts() {
   local installed_casks="$(brew cask list)"
   local font
 
-  pushd homebrew/fonts >&-
+  pushd "${BASE_PATH}/homebrew/fonts" >&-
     for font in *
     do
       grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
@@ -111,7 +115,7 @@ install_homebrew_formulae() {
   local installed_formulae="$(brew list)"
   local formula
 
-  pushd homebrew/formulae >&-
+  pushd "${BASE_PATH}/homebrew/formulae" >&-
     for formula in *
     do
       grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
@@ -123,7 +127,7 @@ install_homebrew_casks() {
   local installed_casks="$(brew cask list)"
   local cask
 
-  pushd homebrew/casks >&-
+  pushd "${BASE_PATH}/homebrew/casks" >&-
     for cask in *
     do
       grep "$cask" >&- <<< "$installed_casks" || brew cask install "$cask"
@@ -134,7 +138,7 @@ install_homebrew_casks() {
 install_go_packages() {
   local pkg
 
-  pushd go/packages >&-
+  pushd "${BASE_PATH}/go/packages" >&-
     for pkg in *
     do
       go get ${pkg//\~//}
@@ -156,7 +160,7 @@ setup_htop() {
 install_homebrew_taps() {
   local installed_taps="$(brew tap)"
 
-  pushd homebrew/taps >&-
+  pushd "${BASE_PATH}/homebrew/taps" >&-
     local tap
     for tap in *
     do
@@ -182,7 +186,7 @@ success() {
 cleanup() {
  if [ -n "$SUDO_GUARDIAN_PID" ]
  then
-    ! ps $SUDO_GUARDIAN_PID >&- || kill -PIPE $SUDO_GUARDIAN_PID
+    ! ps "$SUDO_GUARDIAN_PID" >&- || kill -PIPE "$SUDO_GUARDIAN_PID"
  fi
 }
 
