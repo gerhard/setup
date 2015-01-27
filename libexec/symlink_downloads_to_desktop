@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd $HOME >&-
+pushd "$HOME" >&-
   if [ ! -L Downloads ]
   then
     sudo rm -fR Downloads
