@@ -58,7 +58,7 @@ preserve_sudo_privileges_until_exit() {
 load_all_configs() {
   local config
 
-  pushd libexec >&-
+  pushd "${BASE_PATH}/libconfig" >&-
     for config in *
     do
       . "$config"
