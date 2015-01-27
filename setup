@@ -6,6 +6,7 @@ MY_HOSTNAME="$1"
 RELOAD_SERVICES=()
 
 main() {
+  set_base_path
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
   load_all_configs
@@ -31,6 +32,18 @@ main() {
 
 request_sudo_privileges() {
   sudo -v
+}
+
+set_base_path() {
+  SOURCE="${BASH_SOURCE[0]}"
+  DIR="$( dirname "$SOURCE" )"
+  while [ -h "$SOURCE" ]
+  do
+    SOURCE="$(readlink $SOURCE)"
+    [[ $SOURCE != /* ]] && SOURCE="${DIR}/$SOURCE"
+    DIR="$( cd -P $(dirname $SOURCE) && pwd )"
+  done
+  BASE_PATH="$(cd $DIR && pwd)"
 }
 
 preserve_sudo_privileges_until_exit() {
