@@ -1,0 +1,2 @@
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
