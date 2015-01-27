@@ -2,8 +2,9 @@
 
 if [ -n "$MY_HOSTNAME" ]
 then
-  sudo scutil --set HostName $hostname
-  sudo scutil --set LocalHostName $hostname
-  sudo scutil --set ComputerName $hostname
+  sudo scutil --set HostName "$MY_HOSTNAME"
+  sudo scutil --set LocalHostName "$MY_HOSTNAME"
+  sudo scutil --set ComputerName "$MY_HOSTNAME"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$MY_HOSTNAME"
   dscacheutil -flushcache
 fi
