@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd "${BASE_PATH}/user/dotfiles" >&-
+pushd "${BASE_PATH}/dotfiles" >&-
   for dotfile in *
   do
     ln -nsf "${PWD}/${dotfile}" "${HOME}/.${dotfile}"

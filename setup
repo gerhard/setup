@@ -9,10 +9,8 @@ main() {
   set_base_path
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
-  load_all_configs
+  apply_configs
 
-  # homebrew
-  install_homebrew
   install_homebrew_taps
   install_homebrew_formulae
   setup_htop
@@ -55,7 +53,7 @@ preserve_sudo_privileges_until_exit() {
   SUDO_GUARDIAN_PID="$!"
 }
 
-load_all_configs() {
+apply_configs() {
   local config
 
   pushd "${BASE_PATH}/libconfig" >&-
@@ -105,10 +103,6 @@ install_fonts() {
       grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
     done
   popd >&-
-}
-
-install_homebrew() {
-  which brew >&- || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 install_homebrew_formulae() {
