@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# http://osxdaily.com/2013/01/21/mac-slow-wake-from-sleep-fix/ 
+#
+# Standby mode allows a Mac to potentially have up to 30 days of ‘standby’
+# time, meaning it can sit in a prolonged sleep state for that long before
+# draining the battery. 
+#
+# Standby (and sleep) works by dumping everything out of active RAM
+# into a sleep image file on the hard drive, and then when the Mac wakes from
+# sleep that sleep image file is copied back from the hard drive to RAM.
+#
+# On MacBookPro11,2 default standbydelay is 10800
+
+sudo pmset -a standbydelay 43200
