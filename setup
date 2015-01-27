@@ -10,14 +10,6 @@ main() {
   request_sudo_privileges
   preserve_sudo_privileges_until_exit
   apply_configs
-
-  # go
-  install_go_packages
-
-  # vim
-  setup_vim_vundle
-  setup_you_complete_me
-
   reload_modified_services
   success
 }
@@ -54,46 +46,6 @@ apply_configs() {
     for config in *
     do
       . "$config"
-    done
-  popd >&-
-}
-
-setup_vim_vundle() {
-  local vundle_bundle="${HOME}/.vim/bundle"
-  local vundle_repository="https://github.com/gmarik/Vundle.vim"
-
-  mkdir -p "$vundle_bundle"
-  pushd "$vundle_bundle" >&-
-    if [ ! -d Vundle.vim ]
-    then
-      git clone "$vundle_repository"
-      vim +PluginInstall +qall
-    fi
-  popd >&-
-}
-
-setup_you_complete_me() {
-  local ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
-
-  if [ -e "$ycm_dir" ]
-  then
-    pushd "$ycm_dir" >&-
-      if ! ls .installed* >&- 2>&-
-      then
-        ./install.sh
-        touch .installed.$(date +"%Y%m%d")
-      fi
-    popd >&-
-  fi
-}
-
-install_go_packages() {
-  local pkg
-
-  pushd "${BASE_PATH}/go/packages" >&-
-    for pkg in *
-    do
-      go get ${pkg//\~//}
     done
   popd >&-
 }

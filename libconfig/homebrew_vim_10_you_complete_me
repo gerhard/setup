@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
+
+if [ -e "$ycm_dir" ]
+then
+  pushd "$ycm_dir" >&-
+    if ! ls .installed* >&- 2>&-
+    then
+      ./install.sh
+      touch .installed.$(date +"%Y%m%d")
+    fi
+  popd >&-
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+vundle_bundle="${HOME}/.vim/bundle"
+vundle_repository="https://github.com/gmarik/Vundle.vim"
+
+mkdir -p "$vundle_bundle"
+pushd "$vundle_bundle" >&-
+  if [ ! -d Vundle.vim ]
+  then
+    git clone "$vundle_repository"
+    vim +PluginInstall +qall
+  fi
+popd >&-

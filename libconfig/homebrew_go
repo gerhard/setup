@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pushd "${BASE_PATH}/go/packages" >&-
+  for pkg in *
+  do
+    go get ${pkg//\~//}
+  done
+popd >&-
