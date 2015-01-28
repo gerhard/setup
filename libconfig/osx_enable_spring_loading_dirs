@@ -1,0 +1,1 @@
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
