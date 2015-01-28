@@ -4,4 +4,5 @@ which brew >&- || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebr
 
 pushd /usr/local >&-
   git config merge.ff yes
+  git config merge.commit yes
 popd >&-
