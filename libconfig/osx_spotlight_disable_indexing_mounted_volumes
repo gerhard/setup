@@ -1,0 +1,1 @@
+sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
