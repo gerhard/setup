@@ -1,0 +1,4 @@
+defaults write com.apple.finder NewWindowTarget -string "PfDe"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+RELOAD_SERVICES+=(Finder)
