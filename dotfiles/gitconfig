@@ -1,3 +1,26 @@
+[alias]
+  # Pull in remote changes for the current repository and all its submodules
+  p = !"git pull; git submodule foreach git pull origin master"
+  # Clone a repository including all submodules
+  c = clone --recursive
+  # Commit all changes
+  ca = !"git add -A && git commit -av"
+[apply]
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [user]
   name = Gerhard Lazu
   email = gerhard@lazu.co.uk
