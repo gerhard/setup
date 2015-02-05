@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# http://apple.stackexchange.com/questions/61057/warning-message-when-trying-to-change-standby-mode-settings
+# Disk needs to have greater than 0 but less than or equal to the
+# sleep timeout value, otherwise sleep timings may not behave as
+# expected.
+sudo pmset -a disksleep 30
+
+sudo pmset -a displaysleep 30
+
+sudo pmset -a sleep 30
