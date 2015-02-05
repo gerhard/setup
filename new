@@ -2,7 +2,7 @@
 
 [ -z "$DEBUG" ] || set -x
 
-MY_HOSTNAME="$1"
+export MY_HOSTNAME="$1"
 RELOAD_SERVICES=()
 
 main() {
@@ -23,11 +23,11 @@ set_base_path() {
   DIR="$( dirname "$SOURCE" )"
   while [ -h "$SOURCE" ]
   do
-    SOURCE="$(readlink $SOURCE)"
+    SOURCE="$(readlink "$SOURCE")"
     [[ $SOURCE != /* ]] && SOURCE="${DIR}/$SOURCE"
-    DIR="$( cd -P $(dirname $SOURCE) && pwd )"
+    DIR="$( cd -P "$(dirname "$SOURCE")" && pwd )"
   done
-  BASE_PATH="$(cd $DIR && pwd)"
+  BASE_PATH="$(cd "$DIR" && pwd)"
 }
 
 preserve_sudo_privileges_until_exit() {
@@ -36,7 +36,7 @@ preserve_sudo_privileges_until_exit() {
     sudo -v 2>&-
   done &
 
-  SUDO_GUARDIAN_PID="$!"
+  SUDO_GUARDIAN_PID="$(pgrep -P $$ | tail -n 1)"
 }
 
 apply_configs() {
@@ -51,12 +51,12 @@ apply_configs() {
 }
 
 reload_modified_services() {
-  local modified_services=${RELOAD_SERVICES[@]:?must be defined}
+  local modified_services=(${RELOAD_SERVICES[@]:?must be defined})
   local modified_services_uniq=(
-    $(printf "%s\n" ${modified_services[@]} | sort -u)
+    $(printf "%s\n" "${modified_services[@]}" | sort -u)
   )
 
-  killall ${modified_services_uniq[@]}
+  killall "${modified_services_uniq[@]}"
 }
 
 success() {
