@@ -37,6 +37,6 @@
 [pack]
   threads = 0
 [push]
-  default = tracking
+  default = current
 [core]
   excludesfile = /Users/gerhard/.gitignore
