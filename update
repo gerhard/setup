@@ -1,0 +1,23 @@
+#!/bin/bash -e
+
+[ -z "$DEBUG" ] || set -x
+
+main() {
+  update_package_sources
+  upgrade_installed_packages
+  cleanup
+}
+
+update_package_sources() {
+  brew update
+}
+
+upgrade_installed_packages() {
+  brew upgrade
+}
+
+cleanup() {
+  brew cleanup -s --force
+}
+
+main
