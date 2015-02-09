@@ -7,15 +7,9 @@ RELOAD_SERVICES=()
 
 main() {
   set_base_path
-  request_sudo_privileges
-  preserve_sudo_privileges_until_exit
   apply_configs
   reload_modified_services
   success
-}
-
-request_sudo_privileges() {
-  sudo -v
 }
 
 set_base_path() {
@@ -28,15 +22,6 @@ set_base_path() {
     DIR="$( cd -P "$(dirname "$SOURCE")" && pwd )"
   done
   BASE_PATH="$(cd "$DIR" && pwd)"
-}
-
-preserve_sudo_privileges_until_exit() {
-  while sleep 10
-  do
-    sudo -v 2>&-
-  done &
-
-  SUDO_GUARDIAN_PID="$(pgrep -P $$ | tail -n 1)"
 }
 
 apply_configs() {
@@ -62,14 +47,5 @@ reload_modified_services() {
 success() {
   echo -e "\nI am yours, ${USER}\n"
 }
-
-cleanup() {
- if [ -n "$SUDO_GUARDIAN_PID" ]
- then
-    ! ps "$SUDO_GUARDIAN_PID" >&- || kill -PIPE "$SUDO_GUARDIAN_PID"
- fi
-}
-
-trap cleanup EXIT
 
 main
