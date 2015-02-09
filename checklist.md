@@ -1,4 +1,7 @@
-- [ ] run ./setup [preferred-hostname]
+- [ ] run ./new [preferred-hostname]
+- [ ] configure Terminal/iTerm vim airline font (Meslo LG for Powerline)
+- [ ] configure Three finger drag trackpad
+- [ ] configure App Expose trackpad
 - [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
 - [ ] add VPN connection
 - [ ] set VPN as the first network interface
@@ -18,3 +21,4 @@
 - [ ] add SizeUp license
 - [ ] Skype login &amp; **Sign me in when Skype starts**
 - [ ] install apps from the App Store **Purchases**
+- [ ] restart for all changes to take effect
