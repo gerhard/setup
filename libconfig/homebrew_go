@@ -3,6 +3,6 @@
 pushd "${BASE_PATH}/go/packages" >&-
   for pkg in *
   do
-    go get ${pkg//\~//}
+    go get "${pkg//\~//}"
   done
 popd >&-

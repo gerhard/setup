@@ -8,7 +8,7 @@ then
     if ! ls .installed* >&- 2>&-
     then
       ./install.sh
-      touch .installed.$(date +"%Y%m%d")
+      touch ".installed.$(date +"%Y%m%d")"
     fi
   popd >&-
 fi
