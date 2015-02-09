@@ -3,9 +3,14 @@
 [ -z "$DEBUG" ] || set -x
 
 main() {
+  os_x_software_update
   update_package_sources
   upgrade_installed_packages
   cleanup
+}
+
+os_x_software_update() {
+  softwareupdate --install --all
 }
 
 update_package_sources() {
