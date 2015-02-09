@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GOPATH="${GOPATH:-"${HOME}/go"}"
+
 pushd "${BASE_PATH}/go/packages" >&-
   for pkg in *
   do
