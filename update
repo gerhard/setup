@@ -6,6 +6,7 @@ main() {
   os_x_software_update
   update_package_sources
   upgrade_installed_packages
+  update_vim_plugins
   cleanup
 }
 
@@ -19,6 +20,10 @@ update_package_sources() {
 
 upgrade_installed_packages() {
   brew upgrade
+}
+
+update_vim_plugins() {
+  vim +PluginUpdate +qall
 }
 
 cleanup() {
