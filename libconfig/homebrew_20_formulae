@@ -5,6 +5,7 @@ installed_formulae="$(brew list)"
 pushd "${BASE_PATH}/homebrew/formulae" >&-
   for formula in *
   do
-    grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula"
+    formula_options="$(cat "$formula")"
+    grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula" "$formula_options"
   done
 popd >&-
