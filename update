@@ -23,7 +23,7 @@ upgrade_installed_packages() {
 }
 
 update_vim_plugins() {
-  vim +PluginUpdate +qall
+  vim +PluginUpdate +PluginClean! +qall
 }
 
 cleanup() {
