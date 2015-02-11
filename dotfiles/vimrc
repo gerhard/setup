@@ -49,6 +49,8 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/rbenv-ctags'
 " Alternate between relative numbering and absolute numbering
 Plugin 'myusuf3/numbers.vim'
+" Highlight colours in files
+Plugin 'ap/vim-css-color'
 call vundle#end()
 
 " Additions from http://mislav.uniqpath.com/2011/12/vim-revisited/
