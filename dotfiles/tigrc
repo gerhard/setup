@@ -6,3 +6,5 @@ bind status p !git push
 
 bind status c !git commit --verbose
 bind status a !git commit --amend --verbose
+
+bind status x !git clean -fd
