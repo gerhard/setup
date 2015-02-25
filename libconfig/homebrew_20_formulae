@@ -2,10 +2,20 @@
 
 installed_formulae="$(brew list)"
 
+formula_not_installed?() {
+  local formula="${1:?formula must be provided}"
+
+  ! grep "$formula" >&- <<< "$installed_formulae"
+}
+
 pushd "${BASE_PATH}/homebrew/formulae" >&-
   for formula in *
   do
     formula_options="$(cat "$formula")"
-    grep "$formula" >&- <<< "$installed_formulae" || brew install "$formula" "$formula_options"
+    if formula_not_installed? "$formula"
+    then
+      [ -z "$formula_options" ] || formula="$formula $formula_options"
+      brew install "$formula"
+    fi
   done
 popd >&-
