@@ -5,28 +5,30 @@ I've looked at [sprout-wrap](https://github.com/pivotal-sprout/sprout-wrap),
 [osxc](https://osxc.github.io/), [boxen](https://boxen.github.com/) and others,
 but the associated complexity was off-putting.  There had to be a simpler way.
 Peel back all the layers in any of the above tools, and one will find calls to
-commands like `defaults`, `brew`, `go`, `ln`, `kill` etc.  Indirection and
-abstractions are wonderful, but just as everything, knowing when not to use
-them is possibly the most valuable skill.
+terminal commands like `defaults`, `brew`, `go`, `ln`, `kill` etc.  Indirection
+and abstractions are wonderful concepts, but knowing when not to use them is
+possibly the most valuable skill.
 
 ## Why?
 
-I wanted it to be easy to add/remove a new brew formula, go package or OS X
-app.
+I want to easily add/remove a new brew formula, go package or OS X app.
 
-I wanted to have a stripped-down vim environment with just the features that I
-rely on a daily basis. Having used vim janus for many years, I wanted something
-leaner, faster & simpler.
+I want a stripped-down vim environment with just the add-ons that I rely on a
+daily basis.  I have used vim janus for many years. I want something leaner,
+faster & overall simpler.
 
-I wanted a back-to-basics shell environment. oh-my-zsh is great, as is bash-it,
+I want a back-to-basics shell environment. oh-my-zsh is great, as is bash-it,
 but I value simplicity over features.
 
-I wanted a single command that updates my entire setup, or that
-returns my Mac back to its defaults.
+I want a single command that updates my entire Mac configuration.
 
-I wanted the identical setup on any Mac, in less than 30 minutes.
+I want a single command that returns my Mac back to its defaults.
 
-## On a new Mac
+I want an identical setup on any Mac, in less than 30 minutes.
+
+## How?
+
+### On a new Mac
 
 1. Install Xcode Command Line Tools
 ```
@@ -44,6 +46,6 @@ git clone https://github.com/gerhard/setup.git ~/setup
 
 You will be asked for your password, some.
 
-## Regular updates
+### Keep the dependencies updated
 
-## Restore Mac to its defaults
+### Restore the Mac back to its defaults
