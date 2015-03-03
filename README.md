@@ -42,8 +42,9 @@ which ones.
 
 Depending on the time that the `new` command will take to run, you might need
 to enter this password multiple times. Not ideal, but automating this didn't
-feel right. It was complicated, didn't work well, and I would much rather enter
-my password multiple times than give a script extended admin privileges.
+feel right. It was complicated and didn't work consistently. Not to mention
+that I would rather enter my password multiple times than give a script
+extended admin privileges.
 
 ### Keep the configuration updated
 
