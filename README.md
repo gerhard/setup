@@ -25,15 +25,25 @@ but I choose simplicity.
 
 ### On a new Mac
 
-1. Install Xcode Command Line Tools: `xcode-select -p`
-1. Clone this repository: `git clone https://github.com/gerhard/setup.git ~/setup`
-1. Remove the homebrew casks, formulae &amp; fonts which you don't want
-1. Run the setup, optionally providing a new name for your Mac: `~/setup/new [eve]`
-You will be asked for your password as some terminal commands require
-administrator privileges. Run `grep -r sudo ~/setup` to find exactly which
-ones. Depending on the time that the `new` command will take to run, you might
-need to enter this password multiple times.
-1. Enjoy your freshly configured Mac!
+```sh
+# Install Xcode Command Line Tools
+xcode-select -p
+# Clone this repository
+git clone https://github.com/gerhard/setup.git ~/setup
+# Remove the homebrew casks, formulae etc. which you don't want, e.g.
+# rm ~/setup/homebrew/casks/{alfred,istat-menus}
+# Run the setup (optionally, set a new name for your Mac)
+~/setup/new my-new-mac
+```
+
+During the setup, you will be asked for your password as some terminal commands
+require administrator privileges. Run `grep -r sudo ~/setup` to find exactly
+which ones.
+
+Depending on the time that the `new` command will take to run, you might need
+to enter this password multiple times. Not ideal, but automating this didn't
+feel right. It was complicated, didn't work well, and I would much rather enter
+my password multiple times than give a script extended admin privileges.
 
 ### Keep the configuration updated
 
