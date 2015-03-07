@@ -1,4 +1,4 @@
-After setting up a new Mac with development tools, apps and configuring it for
+After setting up a new Mac with development tools, apps, and configuring it for
 the nth time, I was determined to automate the process.  I've looked at
 [sprout-wrap](https://github.com/pivotal-sprout/sprout-wrap),
 [osxc](https://osxc.github.io/) &amp; [boxen](https://boxen.github.com/), but
@@ -29,15 +29,15 @@ but I choose simplicity.
 # Install Xcode Command Line Tools
 xcode-select -p
 # Clone this repository
-git clone https://github.com/gerhard/setup.git ~/setup
+git clone https://github.com/gerhard/setup.git ~/.setup
 # Remove the homebrew casks, formulae etc. which you don't want, e.g.
-# rm ~/setup/homebrew/casks/{alfred,istat-menus}
+# rm ~/.setup/homebrew/casks/{alfred,istat-menus}
 # Run the setup (optionally, set a new name for your Mac)
-~/setup/new my-new-mac
+~/.setup/new my-new-mac
 ```
 
 During the setup, you will be asked for your password as some terminal commands
-require administrator privileges. Run `grep -r sudo ~/setup` to find exactly
+require administrator privileges. Run `grep -r sudo ~/.setup` to find exactly
 which ones.
 
 Depending on the time that the `new` command will take to run, you might need
@@ -49,5 +49,5 @@ extended admin privileges.
 ### Keep the configuration updated
 
 ```
-~/setup/update
+~/.setup/update
 ```
