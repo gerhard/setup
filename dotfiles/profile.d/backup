@@ -1,0 +1,10 @@
+#!/bin/bash
+
+backup() {
+  local from="${1:?which path do you want to backup?}"
+  local to="${2:?where are you $from backing up to?}"
+
+  rsync --update --times --recursive --links --delete\
+        --verbose --progress --human-readable \
+        "$from" "$to"
+}
