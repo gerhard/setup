@@ -12,6 +12,8 @@ alias t="tig --all"
 alias v=vagrant
 alias d=docker
 
+alias b=brew
+
 export GOPATH="${HOME}/go"
 export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
 
