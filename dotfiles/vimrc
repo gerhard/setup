@@ -84,7 +84,7 @@ endif
 
 nmap <leader>n :NERDTreeToggle<cr>
 let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp', 'pkg']
+let NERDTreeIgnore = ['tmp']
 
 " Disable automatic folding
 let g:vim_markdown_folding_disabled=1
