@@ -1,0 +1,37 @@
+#!/bin/bash
+
+update_go_stdlib_src() {
+  go get -u github.com/golang/go || true
+}
+
+checkout_go_stdlib_version_that_matches_runtime() {
+  GOPATH="${GOPATH:?must be defined}"
+  local go_stdlib_src_path="${GOPATH}/src/github.com/golang/go"
+  local go_runtime_version="$(go version | awk '{ print $3 }')"
+
+  pushd "$go_stdlib_src_path" >&-
+    git checkout "$go_runtime_version"
+  popd >&-
+}
+
+find_go_stdlib_src_files() {
+  GOPATH="${GOPATH:?must be defined}"
+  local go_stdlib_src_path="${GOPATH}/src/github.com/golang/go/src"
+
+  find "$go_stdlib_src_path" -type f -name '*.go' -not -path '*testdata*'
+}
+
+find_go_src_files_in_current_path() {
+  local current_resolved_absolute_path="$(pwd -P)"
+
+  find "$current_resolved_absolute_path" \
+    -type f -name '*.go' \
+    -not -name '*_test.go'
+}
+
+generate_gotags_index() {
+  local stdlib_src="$(find_go_stdlib_src_files)"
+  local go_src="$(find_go_src_files_in_current_path)"
+
+  printf "%s\n%s" "$stdlib_src" "$go_src" | gotags -L - > tags
+}
