@@ -90,6 +90,9 @@ let NERDTreeIgnore = ['tmp']
 let g:vim_markdown_folding_disabled=1
 
 " CtrlP configuration
+nnoremap <c-a> :CtrlP<cr>
+nnoremap <c-y> :CtrlPTag<cr>
+nnoremap <c-s> :TagbarToggle<cr>
 let g:ctrlp_by_filename = 1
 " No max file limit
 let g:ctrlp_max_files = 0
@@ -216,9 +219,6 @@ fu! Golang()
 endfu
 call Golang()
 
-" ctags goodness
-nnoremap <leader>t :TagbarToggle<cr>
-nnoremap <c-l> :CtrlPTag<cr>
 " Install go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
