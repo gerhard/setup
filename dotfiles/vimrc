@@ -219,7 +219,6 @@ fu! Golang()
 endfu
 call Golang()
 
-" Install go get -u github.com/jstemmer/gotags
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
