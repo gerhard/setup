@@ -76,6 +76,8 @@ set colorcolumn=80
 
 let mapleader=","
 
+set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
+
 let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary
 set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
@@ -215,7 +217,27 @@ nnoremap <leader><space> :noh<cr>
 fu! Golang()
   au BufRead,BufNewFile *.go set ft=go
   autocmd BufWritePre *.go :%s/\s\+$//e
-  au Filetype go nnoremap <leader>r :GoRun %<cr>
+  
+  let g:go_fmt_command = "goimports"
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+
+  au FileType go nmap <Leader>s <Plug>(go-implements)
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <leader>c <Plug>(go-coverage)
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  au FileType go nmap <Leader>e <Plug>(go-rename)
 endfu
 call Golang()
 
