@@ -22,6 +22,7 @@
 - [ ] add iStat Menus license
 - [ ] configure iStat Menus
 - [ ] allow SizeUp in Privacy &gt; Accessibility
+- [ ] start SizeUp at login
 - [ ] add SizeUp (Irradiated Software) license
 - [ ] Skype login &amp; **Sign me in when Skype starts**
 - [ ] install apps from App Store &gt; **Purchases**
