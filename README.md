@@ -52,9 +52,22 @@ extended admin privileges.
 Once the `new` command completes, restart the Mac so that all system settings
 can be applied correctly.
 
-Once the system reboots, run the `update` command to ensure that the system
+Once the system restarts, run the `update` command to ensure that the system
 software is up to date. You will want to run this command periodically as it
 will keep both the system software &amp; configuration updated.
+
+Depending on the updates which were installed the first time you run the
+`update` command, you might need to restart again.
+
+I've kept the setup scripts minimal on purpose. There are extra setup steps
+which are best done manually. Some were not worth automating, others were just
+impossible. See the
+[checklist.md](https://github.com/gerhard/setup/blob/master/checklist.md) for
+all the steps which I still do manually on every new setup. As they are in
+[Github task
+list](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments)
+format, they are perfectly suited for Issues. [These are the Macs which I've
+setup so far using them](https://github.com/gerhard/setup/issues).
 
 ### Keep the system &amp; configuration updated
 
