@@ -2,7 +2,7 @@
 - [ ] restart
 - [ ] run ~/.setup/update
 - [ ] restart if required by system software update
-- [ ] configure Terminal/iTerm vim airline font (Meslo LG for Powerline)
+- [ ] configure Terminal/iTerm vim airline font (Meslo LG S for Powerline)
 - [ ] configure Three finger drag trackpad
 - [ ] configure App Expose trackpad
 - [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
@@ -20,7 +20,6 @@
 - [ ] configure Alfred Hotkey (potentially remap Spotlight Hotkey)
 - [ ] add iStat Menus license
 - [ ] configure iStat Menus
-- [ ] configure iTerm to use your Powerline font of choice
 - [ ] allow SizeUp in Privacy &gt; Accessibility
 - [ ] add SizeUp license
 - [ ] Skype login &amp; **Sign me in when Skype starts**
