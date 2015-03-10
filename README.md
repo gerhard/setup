@@ -67,7 +67,8 @@ all the steps which I still do manually on every new setup. As they are in
 [Github task
 list](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments)
 format, they are perfectly suited for Issues. [These are the Macs which I've
-setup so far using them](https://github.com/gerhard/setup/issues).
+setup so far using this checklist
+template](https://github.com/gerhard/setup/issues).
 
 ### Keep the system &amp; configuration updated
 
