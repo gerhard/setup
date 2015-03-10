@@ -18,9 +18,11 @@
 - [ ] add Google Calendar feed to Calendar
 - [ ] add Alfred license
 - [ ] configure Alfred Hotkey (potentially remap Spotlight Hotkey)
+- [ ] map Alfred Clipboard Viewer Hotkey to Alt+Cmd+V
 - [ ] add iStat Menus license
 - [ ] configure iStat Menus
 - [ ] allow SizeUp in Privacy &gt; Accessibility
-- [ ] add SizeUp license
+- [ ] add SizeUp (Irradiated Software) license
 - [ ] Skype login &amp; **Sign me in when Skype starts**
 - [ ] install apps from App Store &gt; **Purchases**
+- [ ] generate/add SSH keys
