@@ -34,6 +34,9 @@ git clone https://github.com/gerhard/setup.git ~/.setup
 # rm ~/.setup/homebrew/casks/{alfred,istat-menus}
 # Run the setup (optionally, set a new name for your Mac)
 ~/.setup/new my-new-mac
+# Restart the Mac for all system settings to apply correctly
+# Update system software
+~/.setup/update
 ```
 
 During the setup, you will be asked for your password as some terminal commands
@@ -46,7 +49,14 @@ feel right. It was complicated and didn't work consistently. Not to mention
 that I would rather enter my password multiple times than give a script
 extended admin privileges.
 
-### Keep the configuration updated
+Once the `new` command completes, restart the Mac so that all system settings
+can be applied correctly.
+
+Once the system reboots, run the `update` command to ensure that the system
+software is up to date. You will want to run this command periodically as it
+will keep both the system software &amp; configuration updated.
+
+### Keep the system &amp; configuration updated
 
 ```
 ~/.setup/update
