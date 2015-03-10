@@ -6,7 +6,7 @@ the associated complexity was off-putting.  There had to be a simpler way.
 
 ## Why?
 
-I want an identical setup on any Mac in under 30 minutes.
+I want an identical setup on any Mac with a single command.
 
 I want a single command that updates an existing Mac configuration. brew update
 &amp; upgrade are not enough. There's system software updates, vim plugin
