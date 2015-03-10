@@ -27,7 +27,7 @@ but I choose simplicity.
 
 ```sh
 # Install Xcode Command Line Tools
-xcode-select -p
+xcode-select --install
 # Clone this repository
 git clone https://github.com/gerhard/setup.git ~/.setup
 # Remove the homebrew casks, formulae etc. which you don't want, e.g.
