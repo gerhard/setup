@@ -1,4 +1,7 @@
-- [ ] run ./new [preferred-hostname]
+- [ ] run ~/.setup/new [preferred-hostname]
+- [ ] restart
+- [ ] run ~/.setup/update
+- [ ] restart if required by system software update
 - [ ] configure Terminal/iTerm vim airline font (Meslo LG for Powerline)
 - [ ] configure Three finger drag trackpad
 - [ ] configure App Expose trackpad
@@ -18,7 +21,7 @@
 - [ ] add iStat Menus license
 - [ ] configure iStat Menus
 - [ ] configure iTerm to use your Powerline font of choice
+- [ ] allow SizeUp in Privacy &gt; Accessibility
 - [ ] add SizeUp license
 - [ ] Skype login &amp; **Sign me in when Skype starts**
-- [ ] install apps from the App Store **Purchases**
-- [ ] restart for all changes to take effect
+- [ ] install apps from App Store &gt; **Purchases**
