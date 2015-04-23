@@ -109,6 +109,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](tmp|bundle|vendor)$',
   \ 'file': '\v\.(swp)$',
   \ }
+let g:ctrlp_show_hidden = 1
 
 " Comment lines
 map <D-/> :Commentary<cr>
