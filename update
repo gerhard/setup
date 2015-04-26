@@ -19,7 +19,7 @@ update_package_sources() {
 }
 
 upgrade_installed_packages() {
-  brew upgrade
+  brew upgrade -all
 }
 
 update_vim_plugins() {
