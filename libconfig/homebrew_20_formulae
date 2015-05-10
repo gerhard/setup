@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 installed_formulae="$(brew list)"
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 vundle_bundle="${HOME}/.vim/bundle"
 vundle_repository="https://github.com/gmarik/Vundle.vim"

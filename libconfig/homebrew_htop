@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 htop_bins=$(find /usr/local/Cellar -name htop -perm +111 -type f)
 
