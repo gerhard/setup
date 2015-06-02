@@ -17,9 +17,6 @@ alias d=docker
 
 alias bx='bundle exec'
 
-export RBENV_ROOT=/usr/local/var/rbenv
-! which rbenv >&- || eval "$(rbenv init -)"
-
 for profile_config in ${HOME}/.profile.d/*
 do
   . "$profile_config"
