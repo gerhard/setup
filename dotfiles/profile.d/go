@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if which go >&-
+then
+  export GOPATH="${HOME}/go"
+
+  export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
+fi

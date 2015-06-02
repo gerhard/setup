@@ -17,9 +17,6 @@ alias d=docker
 
 alias bx='bundle exec'
 
-export GOPATH="${HOME}/go"
-export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
-
 export RBENV_ROOT=/usr/local/var/rbenv
 ! which rbenv >&- || eval "$(rbenv init -)"
 
