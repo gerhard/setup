@@ -12,8 +12,8 @@ alias g=git
 alias t="tig --all"
 
 alias v=vagrant
-alias d=docker
 
+alias d=docker
 
 alias bx='bundle exec'
 
