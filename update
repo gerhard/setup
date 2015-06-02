@@ -7,6 +7,7 @@ main() {
   update_package_sources
   upgrade_installed_packages
   . libconfig/homebrew_htop
+  # update go pkgs
   update_vim_plugins
   cleanup
 }
