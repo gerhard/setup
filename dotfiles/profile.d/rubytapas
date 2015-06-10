@@ -1,0 +1,53 @@
+#!/bin/bash
+
+__ensure_ruby_tapas_downloader_is_installed() {
+  if ! which ruby-tapas-downloader &>/dev/null
+  then
+    gem install ruby-tapas-downloader
+    ! which rbenv &>/dev/null || rbenv rehash
+  fi
+}
+
+__load_ruby_tapas_downloader_envs_from_keychain() {
+  local ruby_tapas_downloader_envs ruby_tapas_downloader_env load_env_from_keychain
+
+  ruby_tapas_downloader_envs=(
+    RUBY_TAPAS_DOWNLOADER_EMAIL
+    RUBY_TAPAS_DOWNLOADER_PASSWORD
+    RUBY_TAPAS_DOWNLOADER_DOWNLOAD_PATH
+  )
+
+  for ruby_tapas_downloader_env in "${ruby_tapas_downloader_envs[@]}"
+  do
+    load_env_from_keychain="security find-generic-password -a $ruby_tapas_downloader_env -w"
+
+    if $load_env_from_keychain &>/dev/null
+    then
+      export "$ruby_tapas_downloader_env"=$($load_env_from_keychain)
+    else
+      __ruby_tapas_invalid_keychain_item "$ruby_tapas_downloader_env"
+      break
+    fi
+  done
+}
+
+__ruby_tapas_invalid_keychain_item() {
+  local keychain_item
+  keychain_item="$1"
+
+  cat > /dev/stderr <<EOF
+
+In the default Keychain, add a new item with:
+
+  Keychain Item Name: $keychain_item
+  Account Name:       $keychain_item
+  Password:           [actual value]
+
+EOF
+}
+
+ruby_tapas_download() {
+  __ensure_ruby_tapas_downloader_is_installed
+  __load_ruby_tapas_downloader_envs_from_keychain
+  ruby-tapas-downloader download
+}
