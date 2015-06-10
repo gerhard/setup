@@ -1,10 +1,16 @@
 bind main F !git fetch
 bind main u !git pull
+bind main t !git revert
 
 bind main p !git push
 bind status p !git push
 
+bind main S !git stash
+bind status S !git stash
+
+bind main P !git stash pop
+bind status P !git stash pop
+
 bind status c !git commit --verbose
 bind status a !git commit --amend --verbose
-
 bind status x !git clean -fd
