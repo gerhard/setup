@@ -1,15 +1,17 @@
-bind main F !git fetch
+bind main f !git fetch
 bind main u !git pull
 bind main t !git revert
 
 bind main p !git push
+bind main P !git push -f
 bind status p !git push
+bind status P !git push -f
 
-bind main S !git stash
-bind status S !git stash
+bind main { !git stash
+bind status { !git stash
 
-bind main P !git stash pop
-bind status P !git stash pop
+bind main } !git stash pop
+bind status } !git stash pop
 
 bind status c !git commit --verbose
 bind status a !git commit --amend --verbose
