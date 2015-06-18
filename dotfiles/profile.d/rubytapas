@@ -26,7 +26,7 @@ __load_ruby_tapas_downloader_envs_from_keychain() {
       export "$ruby_tapas_downloader_env"=$($load_env_from_keychain)
     else
       __ruby_tapas_invalid_keychain_item "$ruby_tapas_downloader_env"
-      break
+      return 1
     fi
   done
 }
@@ -48,6 +48,5 @@ EOF
 
 ruby_tapas_download() {
   __ensure_ruby_tapas_downloader_is_installed
-  __load_ruby_tapas_downloader_envs_from_keychain
-  ruby-tapas-downloader download
+  __load_ruby_tapas_downloader_envs_from_keychain && ruby-tapas-downloader download
 }
