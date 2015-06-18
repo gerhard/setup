@@ -1,0 +1,13 @@
+#!/bin/bash
+
+skip_ctest_because_it_has_incorrect_syntax() {
+  [[ "$completion" =~ ctest ]]
+}
+
+if [ -d /usr/local/etc/bash_completion.d ]
+then
+  for completion in /usr/local/etc/bash_completion.d/*
+  do
+    skip_ctest_because_it_has_incorrect_syntax || . "$completion"
+  done
+fi
