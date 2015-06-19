@@ -1,6 +1,6 @@
 bind main f !git fetch
 bind main u !git pull
-bind main t !git revert
+bind main t !git revert %(commit)
 
 bind main p !git push
 bind main P !git push -f
