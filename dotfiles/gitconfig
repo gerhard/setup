@@ -8,6 +8,8 @@
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
+[branch]
+  autosetuprebase = always
 [color "branch"]
   current = yellow reverse
   local = yellow
