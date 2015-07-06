@@ -3,6 +3,5 @@
 if which go >&-
 then
   export GOPATH="${HOME}/go"
-
-  export PATH="./bin:${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
+  export PATH="${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${PATH}"
 fi
