@@ -17,6 +17,9 @@ Plugin 'bling/vim-airline'
 " Runs files through external syntax checkers and displays any resulting errors
 Plugin 'scrooloose/syntastic'
 
+" Search terms using Dash
+Plugin 'rizzatti/dash.vim'
+
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'kien/ctrlp.vim'
