@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 " Search terms using Dash
 Plugin 'rizzatti/dash.vim'
 
+" Sexy sidebar
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'kien/ctrlp.vim'
