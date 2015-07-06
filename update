@@ -6,6 +6,7 @@ main() {
   os_x_software_update
   update_package_sources
   upgrade_installed_packages
+  upgrade_installed_casks
   . libconfig/homebrew_htop
   # update go pkgs
   update_vim_plugins
@@ -24,12 +25,22 @@ upgrade_installed_packages() {
   brew upgrade --all
 }
 
+upgrade_installed_casks() {
+  local cask
+
+  brew cask list | while read -r cask
+  do
+    brew cask install "$cask"
+  done
+}
+
 update_vim_plugins() {
   vim +PluginUpdate +PluginClean! +qall
 }
 
 cleanup() {
   brew cleanup -s --force
+  brew cask cleanup
 }
 
 main
