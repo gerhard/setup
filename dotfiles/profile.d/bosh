@@ -1,0 +1,14 @@
+#!/bin/bash
+
+alias b=bosh
+
+alias bcr="bosh create release"
+alias bcrf="bosh create release --force"
+alias bur="bosh upload release"
+
+alias bd="bosh -n deploy"
+
+alias bdd="bosh delete deployment"
+alias bdr="bosh delete release"
+
+alias bus="bosh upload stemcell"
