@@ -41,6 +41,7 @@ update_vim_plugins() {
 cleanup() {
   brew cleanup -s --force
   brew cask cleanup
+  sudo pkill -INT softwareupdate
 }
 
 main
