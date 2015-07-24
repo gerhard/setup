@@ -1,0 +1,11 @@
+#!/bin/bash
+
+alias bx="bundle exec"
+alias be="bundle exec"
+
+alias bl="bundle list"
+
+alias bi="bundle install"
+alias bu="bundle update"
+
+alias bout="bundle outdated"

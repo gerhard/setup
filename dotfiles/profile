@@ -13,9 +13,6 @@ alias v=vagrant
 
 alias d=docker
 
-alias bx='bundle exec'
-alias be='bundle exec'
-
 for profile_config in ${HOME}/.profile.d/*
 do
   . "$profile_config"
