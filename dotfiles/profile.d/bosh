@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias b=bosh
+alias b="bosh"
 
 alias bcr="bosh create release"
 alias bcrf="bosh create release --force"
