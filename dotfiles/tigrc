@@ -3,6 +3,9 @@ bind main u !git pull
 bind main t !git revert %(commit)
 bind main i !git rebase -i %(commit)
 
+bind main B !git checkout -b "%(prompt New branch name: )"
+bind refs B !git checkout -b "%(prompt New branch name: )" %(ref)
+
 bind main p !git push
 bind main P !git push -f
 bind status p !git push
