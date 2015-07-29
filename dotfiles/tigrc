@@ -1,3 +1,6 @@
+# Show git SHAs in main view
+set main-view-id-display = yes
+
 bind main f !git fetch
 bind main u !git pull
 bind main t !git revert %(commit)
