@@ -1,6 +1,9 @@
 # Show git SHAs in main view
 set main-view-id-display = yes
 
+# Refresh views when a modification is detected
+set refresh-mode = auto
+
 bind main f !git fetch
 bind main u !git pull
 bind main t !git revert %(commit)
