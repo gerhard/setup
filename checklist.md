@@ -8,6 +8,7 @@
 - [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
 - [ ] add VPN connection
 - [ ] set VPN as the first network interface
+- [ ] disable Caps Lock
 - [ ] restore Photos from backup
 - [ ] restore Music from backup
 - [ ] restore Documents from backup
