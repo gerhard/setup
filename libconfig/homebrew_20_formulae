@@ -11,15 +11,10 @@ formula_not_installed?() {
 pushd "${BASE_PATH}/homebrew/formulae" >&-
   for formula in *
   do
-    formula_options="$(cat "$formula")"
     if formula_not_installed? "$formula"
     then
-      if [ -z "$formula_options" ]
-      then
-        brew install "$formula"
-      else
-        brew install "$formula" "$formula_options"
-      fi
+      formula_options="$(cat "$formula")"
+      bash -c "brew install $formula $formula_options"
     fi
   done
 popd >&-
