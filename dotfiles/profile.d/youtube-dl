@@ -1,0 +1,9 @@
+#!/bin/bash
+
+audio_dl() {
+  local youtube_url audio_format
+  youtube_url="${1:?First argument must be the URL}"
+  audio_format="${2:-mp3}" # MP3 for direct iTunes Burn to Disc
+
+  youtube-dl --extract-audio --audio-format "$audio_format" --audio-quality 0 --embed-thumbnail "$youtube_url"
+}
