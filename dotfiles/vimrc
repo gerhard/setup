@@ -223,7 +223,6 @@ augroup END " }
 fu! CustomFileTypes()
   au BufRead,BufNewFile {Guardfile} set ft=ruby
   au BufRead,BufNewFile {Vagrantfile} set ft=ruby
-  au BufRead,BufNewFile {Dockerfile} set ft=sh
 endfu
 call CustomFileTypes()
 
