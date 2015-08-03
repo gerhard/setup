@@ -142,6 +142,15 @@ au BufNewFile * set noeol
 " Auto save on losing focus
 au FocusLost * :wa
 
+" I keep fast-fingering these commands... and I cannot get used to :x
+fu! FastFingers()
+ :command Wq wq
+ :command WQ wq
+ :command W w
+ :command Q q
+endfu
+call FastFingers()
+
 fu! Searching()
   " Normalise regexes
   nnoremap / /\v
