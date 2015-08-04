@@ -88,12 +88,12 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
-nmap <leader>n :NERDTreeToggle<cr>
+nmap <Leader>n :NERDTreeToggle<cr>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp']
 
 " Dash
-nmap <silent> <leader>m <Plug>DashSearch
+nmap <silent> <Leader>m <Plug>DashSearch
 
 " Disable automatic folding
 let g:vim_markdown_folding_disabled=1
@@ -163,7 +163,7 @@ fu! Searching()
   set gdefault
 
   " Clear search once done
-  nnoremap <leader><space> :noh<cr>
+  nnoremap <Leader><space> :noh<cr>
 endfu
 call Searching()
 
@@ -182,9 +182,9 @@ fu! Splits()
   map <D-M-Up> <C-W>k
 
   " Create a vertical split and start using it
-  nnoremap <leader>w <C-w>v<C-w>l
+  nnoremap <Leader>w <C-w>v<C-w>l
   " Create a horizontal split and start using it
-  nnoremap <leader>s <C-w>s<C-w>j
+  nnoremap <Leader>s <C-w>s<C-w>j
 
   " Minimize vertical splits
   set winminwidth=0
@@ -224,7 +224,7 @@ endfu
 call Navigation()
 
 " Select the text that was just pasted
-nnoremap <leader>V V`]
+nnoremap <Leader>V V`]
 
 " Reload vimrc whenever it changes
 augroup reload_vimrc " {
@@ -239,7 +239,7 @@ endfu
 call CustomFileTypes()
 
 " Quickly clear highlighted words
-nnoremap <leader><space> :noh<cr>
+nnoremap <Leader><space> :noh<cr>
 
 fu! Golang()
   au BufRead,BufNewFile *.go set ft=go
@@ -257,10 +257,10 @@ fu! Golang()
   au FileType go nmap <Leader>gd <Plug>(go-doc)
   au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
   au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-  au FileType go nmap <leader>r <Plug>(go-run)
-  au FileType go nmap <leader>b <Plug>(go-build)
-  au FileType go nmap <leader>t <Plug>(go-test)
-  au FileType go nmap <leader>c <Plug>(go-coverage)
+  au FileType go nmap <Leader>r <Plug>(go-run)
+  au FileType go nmap <Leader>b <Plug>(go-build)
+  au FileType go nmap <Leader>t <Plug>(go-test)
+  au FileType go nmap <Leader>c <Plug>(go-coverage)
   au FileType go nmap <Leader>ds <Plug>(go-def-split)
   au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>dt <Plug>(go-def-tab)
