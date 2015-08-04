@@ -191,6 +191,11 @@ fu! Splits()
   nmap <Leader>h <C-W>h500<C-W>>
   nmap <Leader>l <C-W>l500<C-W>>
 
+  " Maximise split
+  nnoremap <Leader>z <C-W>\|<C-W>_
+  " Equalise splits
+  nnoremap <Leader>= <C-W>=
+
   " When closing a split, delete the buffer
   map <D-w> :bd<cr>
 endfu
