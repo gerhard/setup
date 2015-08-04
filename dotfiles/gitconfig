@@ -42,3 +42,5 @@
   default = current
 [core]
   excludesfile = /Users/gerhard/.gitignore
+[commit]
+  template = /Users/gerhard/.gitcommit
