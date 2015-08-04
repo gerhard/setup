@@ -41,6 +41,6 @@
 [push]
   default = current
 [core]
-  excludesfile = /Users/gerhard/.gitignore
+  excludesfile = ~/.gitignore
 [commit]
-  template = /Users/gerhard/.gitcommit
+  template = ~/.gitcommit
