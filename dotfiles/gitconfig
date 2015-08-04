@@ -40,6 +40,14 @@
   rebase = true
 [push]
   default = current
+[merge]
+  tool = vimdiff3
+[mergetool]
+  prompt = false
+[diff]
+  tool = vimdiff3
+[difftool]
+  prompt = false
 [core]
   excludesfile = ~/.gitignore
 [commit]
