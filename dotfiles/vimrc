@@ -14,6 +14,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 " Lean & mean status/tabline for vim that's light as air
 Plugin 'bling/vim-airline'
+" Airline shell prompt
+Plugin 'edkolev/promptline.vim'
 " Runs files through external syntax checkers and displays any resulting errors
 Plugin 'scrooloose/syntastic'
 
