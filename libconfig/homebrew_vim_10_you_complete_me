@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# If YouCompleteMe gets upgraded, you might need to recompile libs.
+# Remove $ycm_dir/.installed* and re-run the new command
+
 ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
 
 if [ -e "$ycm_dir" ]
