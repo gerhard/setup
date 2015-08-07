@@ -1,1 +1,6 @@
+.DS_Store
 .git
+tmp
+bundle
+vendor
+node_modules
