@@ -41,11 +41,13 @@
 [push]
   default = current
 [merge]
-  tool = vimdiff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   prompt = false
 [diff]
-  tool = vimdiff3
+  tool = vimdiff
+  conflictstyle = diff3
 [difftool]
   prompt = false
 [core]
