@@ -2,13 +2,28 @@
 
 alias b="bosh"
 
+alias bt="bosh target"
+alias bts="bosh targets"
+
+alias bv="bosh vms --vitals"
+
+# Releases
+alias br="bosh releases"
 alias bcr="bosh create release"
 alias bcrf="bosh create release --force"
 alias bur="bosh upload release"
-
-alias bd="bosh -n deploy"
-
-alias bdd="bosh delete deployment"
 alias bdr="bosh delete release"
 
+# Deployments
+alias bd="bosh deployment"
+alias bdn="bosh -n deploy"
+alias bds="bosh deployments"
+alias bdd="bosh delete deployment"
+
+# Stemcells
+alias bs="bosh stemcells"
 alias bus="bosh upload stemcell"
+
+# Errands
+alias be="bosh errands"
+alias bre="bosh run errand"
