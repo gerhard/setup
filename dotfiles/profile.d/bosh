@@ -9,10 +9,10 @@ alias bv="bosh vms --vitals"
 
 # Releases
 alias br="bosh releases"
-alias bcr="bosh create release"
-alias bcrf="bosh create release --force"
-alias bur="bosh upload release"
-alias bdr="bosh delete release"
+alias brc="bosh create release"
+alias brcf="bosh create release --force"
+alias bru="bosh upload release"
+alias brd="bosh delete release"
 
 # Deployments
 alias bd="bosh deployment"
@@ -20,10 +20,13 @@ alias bdn="bosh -n deploy"
 alias bds="bosh deployments"
 alias bdd="bosh delete deployment"
 
+# Manifests
+alias bmd="bosh download manifest"
+
 # Stemcells
 alias bs="bosh stemcells"
-alias bus="bosh upload stemcell"
+alias bsu="bosh upload stemcell"
 
 # Errands
 alias be="bosh errands"
-alias bre="bosh run errand"
+alias ber="bosh run errand"
