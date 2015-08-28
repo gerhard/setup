@@ -38,9 +38,24 @@ update_vim_plugins() {
   vim +PluginUpdate +PluginClean! +qall
 }
 
+remove_unused_casks() {
+  local cask version_to_delete
+  pushd /opt/homebrew-cask/Caskroom >&-
+    for cask in *
+    do
+      # shellcheck disable=SC2012
+      ls -r "$cask" | tail -n +2 | while read version_to_delete
+      do
+        sudo rm -r "${cask:?}/$version_to_delete"
+      done
+    done
+  popd
+}
+
 cleanup() {
   brew cleanup -s --force
   brew cask cleanup
+  remove_unused_casks
   sudo pkill -INT softwareupdate
 }
 
