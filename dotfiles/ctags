@@ -3,3 +3,4 @@
 --exclude=.git
 --exclude=vendor
 --exclude=node_modules
+--exclude=coverage
