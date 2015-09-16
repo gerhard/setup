@@ -1,0 +1,31 @@
+#!/bin/bash
+
+load_homebrew_github_api_key_from_keychain() {
+    github_api_key_env=HOMEBREW_GITHUB_API_TOKEN 
+    load_github_api_key_from_env="security find-generic-password -a $github_api_key_env -w"
+
+    if $load_github_api_key_from_env &>/dev/null
+    then
+      export "$github_api_key_env"=$($load_github_api_key_from_env)
+    else
+      __invalid_keychain_item "$github_api_key_env"
+      return 1
+    fi
+}
+
+__invalid_keychain_item() {
+  local keychain_item
+  keychain_item="$1"
+
+  cat > /dev/stderr <<EOF
+
+In the default Keychain, add a new item with:
+
+  Keychain Item Name: $keychain_item
+  Account Name:       $keychain_item
+  Password:           [actual value]
+
+EOF
+}
+
+load_homebrew_github_api_key_from_keychain
