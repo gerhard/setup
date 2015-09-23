@@ -5,6 +5,6 @@ ycm_dir="${HOME}/.vim/bundle/YouCompleteMe"
 if [ -e "$ycm_dir" ]
 then
   pushd "$ycm_dir" >&-
-    ./install.sh
+    ./install.py
   popd >&-
 fi
