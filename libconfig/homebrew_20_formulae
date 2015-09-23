@@ -5,7 +5,7 @@ installed_formulae="$(brew list)"
 formula_not_installed?() {
   local formula="${1:?formula must be provided}"
 
-  ! grep "$formula" >&- <<< "$installed_formulae"
+  ! [[ $installed_formulae =~ $formula ]]
 }
 
 pushd "${BASE_PATH}/homebrew/formulae" >&-

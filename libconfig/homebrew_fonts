@@ -5,6 +5,6 @@ installed_casks="$(brew cask list)"
 pushd "${BASE_PATH}/homebrew/fonts" >&-
   for font in *
   do
-    grep "$font" >&- <<< "$installed_casks" || brew cask install "$font"
+    [[ $installed_casks =~ $font ]] || brew cask install "$font"
   done
 popd >&-
