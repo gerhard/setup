@@ -56,7 +56,7 @@ remove_unused_casks() {
     for cask in *
     do
       # shellcheck disable=SC2012
-      ls -r "$cask" | tail -n +2 | while read version_to_delete
+      ls -r "$cask" | tail -n +2 | while read -r version_to_delete
       do
         sudo rm -r "${cask:?}/$version_to_delete"
       done
