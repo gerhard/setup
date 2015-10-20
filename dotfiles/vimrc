@@ -34,8 +34,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 " Async build and test dispatcher
 Plugin 'tpope/vim-dispatch'
-" Code-completion engine for vim
-Plugin 'Valloric/YouCompleteMe'
+" Perform all your vim insert mode completions with Tab
+Plugin 'ervandew/supertab'
 
 Plugin 'fatih/vim-go'
 

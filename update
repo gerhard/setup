@@ -12,8 +12,6 @@ main() {
   . libconfig/homebrew_htop
   # update go pkgs
   update_vim_plugins
-  # shellcheck disable=SC1091
-  . libconfig/homebrew_vim_10_you_complete_me
   cleanup
 }
 
