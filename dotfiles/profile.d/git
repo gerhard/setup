@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+unpair() {
+  if which git >&-
+  then
+    pushd "$HOME/.setup" >&-
+      git checkout dotfiles/gitconfig
+    popd >&-
+  fi
+}
