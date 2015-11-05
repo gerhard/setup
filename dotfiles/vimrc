@@ -224,9 +224,9 @@ fu! Navigation()
   nnoremap <Tab> %
   vnoremap <Tab> %
 
-  " Use tab to navigate between blocks
-  " nmap <tab> %
-  " vmap <tab> %
+  " Use backspace to navigate between buffers
+  :nnoremap <Backspace> :bnext<cr>
+  :nnoremap <S-Backspace> :bprevious<cr>
 endfu
 call Navigation()
 
