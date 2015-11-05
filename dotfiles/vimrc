@@ -221,8 +221,8 @@ call Tabs()
 
 fu! Navigation()
   " Use tab to match bracket pairs
-  nnoremap <tab> %
-  vnoremap <tab> %
+  nnoremap <Tab> %
+  vnoremap <Tab> %
 
   " Use tab to navigate between blocks
   " nmap <tab> %
