@@ -80,7 +80,7 @@ set noswapfile
 set nobackup
 set colorcolumn=80
 
-let mapleader="`"
+let mapleader=","
 
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
 
@@ -90,8 +90,14 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
-" Quick write
+" Quick write, quit & both
+nnoremap <Leader>z :bd<CR>
+nnoremap <Leader>x :x<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
+
+" Git ncurses
+nnoremap <Leader>g :!tig --all<CR>
 
 " Dash
 nmap <silent> <Leader>d <plug>DashSearch
@@ -137,9 +143,6 @@ let g:syntastic_check_on_open = 1
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
-
-" Quit window
-nnoremap <Leader>q :q<CR>
 
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e
@@ -195,9 +198,6 @@ fu! Splits()
   nnoremap <Leader>z <C-W>\|<C-W>_
   " Equalise splits
   nnoremap <Leader>= <C-W>=
-
-  " When closing a split, delete the buffer
-  nnoremap <Leader>c :bd<CR>
 endfu
 call Splits()
 
