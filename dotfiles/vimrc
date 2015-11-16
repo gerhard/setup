@@ -20,10 +20,9 @@ Plugin 'scrooloose/syntastic'
 " Search terms using Dash
 Plugin 'rizzatti/dash.vim'
 
-" Sexy sidebar
-Plugin 'scrooloose/nerdtree'
-
+" The one & only vim finder
 Plugin 'kien/ctrlp.vim'
+
 " Ends certain structures automatically
 Plugin 'tpope/vim-endwise'
 " Remaps . in a way that plugins can tap into
@@ -81,7 +80,7 @@ set noswapfile
 set nobackup
 set colorcolumn=80
 
-let mapleader=","
+let mapleader="`"
 
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
 
@@ -91,20 +90,27 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
-nmap <Leader>n :NERDTreeToggle<cr>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp']
+" Quick write
+nnoremap <Leader>w :w<CR>
 
 " Dash
-nmap <silent> <Leader>m <Plug>DashSearch
+nmap <silent> <Leader>d <plug>DashSearch
 
 " Disable automatic folding
 let g:vim_markdown_folding_disabled=1
 
 " CtrlP configuration
-nnoremap <c-a> :CtrlP<cr>
-nnoremap <c-y> :CtrlPTag<cr>
-nnoremap <c-s> :TagbarToggle<cr>
+" Search in files
+nnoremap <Leader>f :CtrlP<CR>
+" Search in buffers
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" Search in tags
+nnoremap <Leader>t :TagbarToggle<CR>
+" Search in most recently used files
+nnoremap <Leader>r :CtrlPMRU<CR>
+" Show hidden files in search list
+let g:ctrlp_show_hidden = 1
+" Search by filename
 let g:ctrlp_by_filename = 1
 " No max file limit
 let g:ctrlp_max_files = 0
@@ -114,10 +120,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " r - the nearest ancestor that contains one of these directories or files: .git .hg .svn .bzr _darcs
 " a - like c, but only if the current working directory outside of CtrlP is not a direct ancestor of the directory of the current file
 " 0 or '' (empty string) - disable this feature
-let g:ctrlp_show_hidden = 1
 
 " The Silver Searcher + CtrlP
-nnoremap \ :Ag<SPACE>
+nnoremap \ :Ag<Space>
 " Use ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
 
@@ -129,10 +134,12 @@ let g:ctrlp_use_caching = 0
 " Syntastic config
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
-" let g:syntastic_html_checkers = ['tidy']
 
 " Comment lines
-map <D-/> :Commentary<cr>
+noremap <Leader>/ :Commentary<CR>
+
+" Quit window
+nnoremap <Leader>q :q<CR>
 
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e
@@ -165,7 +172,7 @@ fu! Searching()
   set gdefault
 
   " Clear search once done
-  nnoremap <Leader><space> :noh<cr>
+  nnoremap <Leader><Space> :noh<CR>
 endfu
 call Searching()
 
@@ -174,24 +181,15 @@ fu! Splits()
   set equalalways
 
   " Navigate splits
-  map <C-J> <C-W>j
-  map <D-M-Down> <C-W>j
-  map <C-H> <C-W>h
-  map <D-M-Left> <C-W>h
-  map <C-L> <C-W>l
-  map <D-M-Right> <C-W>l
-  map <C-K> <C-W>k
-  map <D-M-Up> <C-W>k
+  nnoremap <Leader>h <C-W>h
+  nnoremap <Leader>j <C-W>j
+  nnoremap <Leader>k <C-W>k
+  nnoremap <Leader>l <C-W>l
 
   " Create a vertical split and start using it
-  nnoremap <Leader>w <C-w>v<C-w>l
+  nnoremap <Leader>v <C-w>v<C-w>l
   " Create a horizontal split and start using it
   nnoremap <Leader>s <C-w>s<C-w>j
-
-  " Minimize vertical splits
-  set winminwidth=0
-  nmap <Leader>h <C-W>h500<C-W>>
-  nmap <Leader>l <C-W>l500<C-W>>
 
   " Maximise split
   nnoremap <Leader>z <C-W>\|<C-W>_
@@ -199,23 +197,21 @@ fu! Splits()
   nnoremap <Leader>= <C-W>=
 
   " When closing a split, delete the buffer
-  map <D-w> :bd<cr>
+  nnoremap <Leader>c :bd<CR>
 endfu
 call Splits()
 
+" Quickly switch between tabs
 fu! Tabs()
-  " Quickly switch between tabs
-  map <S-D-Right> :tabn<cr>
-  map <S-D-Left> :tabp<cr>
-  map <D-1> 1gt
-  map <D-2> 2gt
-  map <D-3> 3gt
-  map <D-4> 4gt
-  map <D-5> 5gt
-  map <D-6> 6gt
-  map <D-7> 7gt
-  map <D-8> 8gt
-  map <D-9> 9gt
+  " Vim
+  nnoremap <Leader>p :tabe<CR>
+  nnoremap <Leader>] :tabn<CR>
+  nnoremap <Leader>[ :tabp<CR>
+  nnoremap <Leader>1 1gt
+  nnoremap <Leader>2 2gt
+  nnoremap <Leader>3 3gt
+  nnoremap <Leader>4 4gt
+  nnoremap <Leader>5 5gt
 endfu
 call Tabs()
 
@@ -223,10 +219,6 @@ fu! Navigation()
   " Use tab to match bracket pairs
   nnoremap <Tab> %
   vnoremap <Tab> %
-
-  " Use backspace to navigate between buffers
-  :nnoremap <Backspace> :bnext<cr>
-  :nnoremap <S-Backspace> :bprevious<cr>
 endfu
 call Navigation()
 
@@ -240,13 +232,11 @@ augroup reload_vimrc " {
 augroup END " }
 
 fu! CustomFileTypes()
+  au BufRead,BufNewFile {Rakefile} set ft=ruby
   au BufRead,BufNewFile {Guardfile} set ft=ruby
   au BufRead,BufNewFile {Vagrantfile} set ft=ruby
 endfu
 call CustomFileTypes()
-
-" Quickly clear highlighted words
-nnoremap <Leader><space> :noh<cr>
 
 fu! Golang()
   au BufRead,BufNewFile *.go set ft=go
