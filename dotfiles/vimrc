@@ -61,7 +61,7 @@ set list
 
 " Additions from http://mislav.uniqpath.com/2011/12/vim-revisited/
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=2 shiftwidth=2      " a tab is two spaces
 set expandtab                   " use spaces, not tabs (optional)
 set hlsearch                    " highlight matches
 set ignorecase                  " searches are case insensitive...
@@ -80,6 +80,9 @@ set noswapfile
 set nobackup
 set colorcolumn=80
 
+" Abandon unloaded buffers
+set hidden
+
 let mapleader=","
 
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
@@ -90,11 +93,18 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
-" Quick write, quit & both
-nnoremap <Leader>z :bd<CR>
-nnoremap <Leader>x :x<CR>
-nnoremap <Leader>q :q<CR>
+" Open up Netwr
+nnoremap <Leader>n :e .<CR>
+
+" Quick write, quit & write-quit
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :x<CR>
+
+" Navigate buffers
+nnoremap <Leader>m :ls<CR>
+nnoremap <Leader>, :bprevious<CR>
+nnoremap <Leader>. :bnext<CR>
 
 " Git ncurses
 nnoremap <Leader>g :!tig --all<CR>
@@ -105,15 +115,19 @@ nmap <silent> <Leader>d <plug>DashSearch
 " Disable automatic folding
 let g:vim_markdown_folding_disabled=1
 
+" Search in tags
+nnoremap <Leader>t :TagbarToggle<CR>
+
 " CtrlP configuration
 " Search in files
 nnoremap <Leader>f :CtrlP<CR>
+" Search in most recently used files, globally
+nnoremap <Leader>r :CtrlPMRU<CR>
 " Search in buffers
 nnoremap <Leader>b :CtrlPBuffer<CR>
-" Search in tags
-nnoremap <Leader>t :TagbarToggle<CR>
-" Search in most recently used files
-nnoremap <Leader>r :CtrlPMRU<CR>
+
+" Adjust the match window to display more results & not jump
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 " Show hidden files in search list
 let g:ctrlp_show_hidden = 1
 " Search by filename
@@ -140,6 +154,11 @@ let g:ctrlp_use_caching = 0
 " Syntastic config
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
+let g:syntastic_html_tidy_ignore_errors=[
+\'proprietary attribute "ng-',
+\'proprietary attribute "marked',
+\'proprietary attribute "analytics',
+\]
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
@@ -157,70 +176,48 @@ au BufNewFile * set noeol
 " Auto save on losing focus
 au FocusLost * :wa
 
-" I keep fast-fingering these commands... and I cannot get used to :x
-fu! FastFingers()
- :command Wq wq
- :command WQ wq
- :command W w
- :command Q q
-endfu
-call FastFingers()
+" Normalise regexes
+nnoremap / /\v
+vnoremap / /\v
 
-fu! Searching()
-  " Normalise regexes
-  nnoremap / /\v
-  vnoremap / /\v
+" Searches are global by default
+set gdefault
 
-  " Searches are global by default
-  set gdefault
+" Clear search once done
+nnoremap <Leader><Space> :noh<CR>
 
-  " Clear search once done
-  nnoremap <Leader><Space> :noh<CR>
-endfu
-call Searching()
+" Whenever a new split opens, equalize all
+set equalalways
 
-fu! Splits()
-  " Whenever a new split opens, equalize all
-  set equalalways
+" Navigate splits
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
 
-  " Navigate splits
-  nnoremap <Leader>h <C-W>h
-  nnoremap <Leader>j <C-W>j
-  nnoremap <Leader>k <C-W>k
-  nnoremap <Leader>l <C-W>l
+" Create a vertical split and start using it
+nnoremap <Leader>v <C-w>v<C-w>l
+" Create a horizontal split and start using it
+nnoremap <Leader>s <C-w>s<C-w>j
 
-  " Create a vertical split and start using it
-  nnoremap <Leader>v <C-w>v<C-w>l
-  " Create a horizontal split and start using it
-  nnoremap <Leader>s <C-w>s<C-w>j
-
-  " Maximise split
-  nnoremap <Leader>z <C-W>\|<C-W>_
-  " Equalise splits
-  nnoremap <Leader>= <C-W>=
-endfu
-call Splits()
+" Maximise split
+nnoremap <Leader>z <C-W>\|<C-W>_
+" Equalise splits
+nnoremap <Leader>= <C-W>=
 
 " Quickly switch between tabs
-fu! Tabs()
-  " Vim
-  nnoremap <Leader>p :tabe<CR>
-  nnoremap <Leader>] :tabn<CR>
-  nnoremap <Leader>[ :tabp<CR>
-  nnoremap <Leader>1 1gt
-  nnoremap <Leader>2 2gt
-  nnoremap <Leader>3 3gt
-  nnoremap <Leader>4 4gt
-  nnoremap <Leader>5 5gt
-endfu
-call Tabs()
+nnoremap <Leader>p :tabe<CR>
+nnoremap <Leader>] :tabn<CR>
+nnoremap <Leader>[ :tabp<CR>
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
 
-fu! Navigation()
-  " Use tab to match bracket pairs
-  nnoremap <Tab> %
-  vnoremap <Tab> %
-endfu
-call Navigation()
+" Use tab to match bracket pairs
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 " Select the text that was just pasted
 nnoremap <Leader>V V`]
@@ -231,39 +228,33 @@ augroup reload_vimrc " {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-fu! CustomFileTypes()
-  au BufRead,BufNewFile {Rakefile} set ft=ruby
-  au BufRead,BufNewFile {Guardfile} set ft=ruby
-  au BufRead,BufNewFile {Vagrantfile} set ft=ruby
-endfu
-call CustomFileTypes()
+au BufRead,BufNewFile {Rakefile} set ft=ruby
+au BufRead,BufNewFile {Guardfile} set ft=ruby
+au BufRead,BufNewFile {Vagrantfile} set ft=ruby
 
-fu! Golang()
-  au BufRead,BufNewFile *.go set ft=go
-  autocmd BufWritePre *.go :%s/\s\+$//e
+au BufRead,BufNewFile *.go set ft=go
+autocmd BufWritePre *.go :%s/\s\+$//e
 
-  let g:go_fmt_command = "goimports"
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
-  au FileType go nmap <Leader>s <Plug>(go-implements)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>b <Plug>(go-build)
-  au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap <Leader>c <Plug>(go-coverage)
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-  au FileType go nmap <Leader>e <Plug>(go-rename)
-endfu
-call Golang()
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>e <Plug>(go-rename)
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
