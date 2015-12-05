@@ -83,6 +83,9 @@ set colorcolumn=80
 " Abandon unloaded buffers
 set hidden
 
+" Refresh file if it was modified outside vim
+set autoread
+
 let mapleader=","
 
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
@@ -98,13 +101,8 @@ nnoremap <Leader>n :e .<CR>
 
 " Quick write, quit & write-quit
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>x :x<CR>
-
-" Navigate buffers
-nnoremap <Leader>m :ls<CR>
-nnoremap <Leader>, :bprevious<CR>
-nnoremap <Leader>. :bnext<CR>
+nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>x :x \| :bd<CR>
 
 " Git ncurses
 nnoremap <Leader>g :!tig --all<CR>
@@ -116,7 +114,7 @@ nmap <silent> <Leader>d <plug>DashSearch
 let g:vim_markdown_folding_disabled=1
 
 " Search in tags
-nnoremap <Leader>t :TagbarToggle<CR>
+nnoremap <Leader>\ :TagbarToggle<CR>
 
 " CtrlP configuration
 " Search in files
@@ -186,14 +184,18 @@ set gdefault
 " Clear search once done
 nnoremap <Leader><Space> :noh<CR>
 
+" Navigate buffers
+" nnoremap <Space>, :bprevious<CR>
+" nnoremap <Space>. :bnext<CR>
+
 " Whenever a new split opens, equalize all
 set equalalways
 
 " Navigate splits
-nnoremap <Leader>h <C-W>h
-nnoremap <Leader>j <C-W>j
+nnoremap <Leader>m <C-W>h
+nnoremap <Leader>. <C-W>l
 nnoremap <Leader>k <C-W>k
-nnoremap <Leader>l <C-W>l
+nnoremap <Leader>, <C-W>j
 
 " Create a vertical split and start using it
 nnoremap <Leader>v <C-w>v<C-w>l
