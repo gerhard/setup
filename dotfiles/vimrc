@@ -54,6 +54,8 @@ Plugin 'tpope/rbenv-ctags'
 Plugin 'myusuf3/numbers.vim'
 " Highlight colours in files
 Plugin 'ap/vim-css-color'
+" JS formatting & syntax
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 
 " display invisible characters
