@@ -9,7 +9,8 @@ export EDITOR=vim
 alias g=git
 alias t="tig --all"
 
-alias v=vagrant
+alias v=vim
+alias V=vagrant
 
 alias d=docker
 
