@@ -98,6 +98,10 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
+" Multiple ESC mappings
+inoremap <Leader><Leader> <ESC>
+inoremap qq <ESC>
+
 " Open up Netwr
 nnoremap <Leader>n :e .<CR>
 
