@@ -12,17 +12,14 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 " A Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
-" Lean & mean status/tabline for vim that's light as air
+" Status/tabline
 Plugin 'bling/vim-airline'
-" Runs files through external syntax checkers and displays any resulting errors
+" Check syntax on :w
 Plugin 'scrooloose/syntastic'
-
-" Search terms using Dash
+" Dash integration
 Plugin 'rizzatti/dash.vim'
-
 " The one & only vim finder
 Plugin 'kien/ctrlp.vim'
-
 " Ends certain structures automatically
 Plugin 'tpope/vim-endwise'
 " Remaps . in a way that plugins can tap into
@@ -33,15 +30,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
-
-Plugin 'fatih/vim-go'
-
-Plugin 'majutsushi/tagbar'
-
-Plugin 'sjl/gundo.vim'
-
-Plugin 'godlygeek/tabular'
-
+" Syntax highlighting, matching rules and mappings for the original Markdown
 Plugin 'plasticboy/vim-markdown'
 " Silver searcher, the ack replacement
 Plugin 'rking/ag.vim'
@@ -56,6 +45,11 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'ap/vim-css-color'
 " JS formatting & syntax
 Plugin 'pangloss/vim-javascript'
+
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'sjl/gundo.vim'
+Plugin 'godlygeek/tabular'
 call vundle#end()
 
 " display invisible characters
