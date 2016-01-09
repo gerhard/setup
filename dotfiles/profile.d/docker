@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias d=docker
+alias dm=docker-machine
+alias dc=docker-compose
