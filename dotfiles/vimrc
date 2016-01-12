@@ -26,8 +26,6 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
 " Comment stuff out
 Plugin 'tpope/vim-commentary'
-" Async build and test dispatcher
-Plugin 'tpope/vim-dispatch'
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
 " Syntax highlighting, matching rules and mappings for the original Markdown
