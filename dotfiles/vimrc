@@ -12,6 +12,18 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 " A Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
+" Ends certain structures automatically
+Plugin 'tpope/vim-endwise'
+" Remaps . in a way that plugins can tap into
+Plugin 'tpope/vim-repeat'
+" Comment stuff out
+Plugin 'tpope/vim-commentary'
+" Lightweight support for Ruby's bundler
+Plugin 'tpope/vim-bundler'
+" rbenv-aware gem-ctags
+Plugin 'tpope/rbenv-ctags'
+" Complementary pairs of mappings, including 'You Only Paste Once'
+Plugin 'tpope/vim-unimpaired'
 " Status/tabline
 Plugin 'bling/vim-airline'
 " Check syntax on :w
@@ -20,12 +32,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'rizzatti/dash.vim'
 " The one & only vim finder
 Plugin 'kien/ctrlp.vim'
-" Ends certain structures automatically
-Plugin 'tpope/vim-endwise'
-" Remaps . in a way that plugins can tap into
-Plugin 'tpope/vim-repeat'
-" Comment stuff out
-Plugin 'tpope/vim-commentary'
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
 " Syntax highlighting, matching rules and mappings for the original Markdown
@@ -34,9 +40,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 " The one and only colour scheme
 Plugin 'tomasr/molokai'
-" Lightweight support for Ruby's bundler
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/rbenv-ctags'
 " Alternate between relative numbering and absolute numbering
 Plugin 'myusuf3/numbers.vim'
 " Highlight colours in files
