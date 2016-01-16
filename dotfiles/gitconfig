@@ -25,8 +25,7 @@
   name = Gerhard Lazu
   email = gerhard@lazu.co.uk
 [github]
-  user = gitconfig
-  token = token
+  user = gerhard
 [credential]
   helper = osxkeychain
 [color]
