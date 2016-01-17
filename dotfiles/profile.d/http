@@ -1,0 +1,13 @@
+#!/bin/bash
+
+response_time() {
+  local url
+  url="$1"
+
+  while :
+  do
+    curl -sL -o /dev/null \
+    -w '%{http_code} dns:%{time_namelookup} tcp:%{time_connect} tls:%{time_appconnect} response:%{time_starttransfer} total:%{time_total}\n' \
+    "$url"
+  done
+}
