@@ -10,7 +10,6 @@ main() {
   upgrade_installed_casks
   # shellcheck disable=SC1091
   . libconfig/homebrew_htop
-  # update go pkgs
   update_vim_plugins
   cleanup
 }
@@ -52,15 +51,12 @@ update_vim_plugins() {
 }
 
 remove_unused_casks() {
-  local cask version_to_delete
+  local cask cask_versions
   pushd /opt/homebrew-cask/Caskroom >&-
     for cask in *
     do
-      # shellcheck disable=SC2012
-      ls -r "$cask" | tail -n +2 | while read -r version_to_delete
-      do
-        sudo rm -r "${cask:?}/$version_to_delete"
-      done
+      cask_versions=($(ls -r "$cask"))
+      [[ ${#cask_versions[@]} = 1 ]] || sudo rm -r "${cask}/${cask_versions[0]}"
     done
   popd
 }
