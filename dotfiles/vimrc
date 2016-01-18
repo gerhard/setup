@@ -12,18 +12,28 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 " A Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
+" GitHub extension for vim-fugitive
+Plugin 'tpope/vim-rhubarb'
 " Ends certain structures automatically
 Plugin 'tpope/vim-endwise'
 " Remaps . in a way that plugins can tap into
 Plugin 'tpope/vim-repeat'
 " Comment stuff out
 Plugin 'tpope/vim-commentary'
-" Lightweight support for Ruby's bundler
+" Lightweight support for Ruby's bundler, including gem-ctags support
 Plugin 'tpope/vim-bundler'
-" rbenv-aware gem-ctags
+" Automatically generate ctags for rbenv Ruby stdlibs
 Plugin 'tpope/rbenv-ctags'
 " Complementary pairs of mappings, including 'You Only Paste Once'
 Plugin 'tpope/vim-unimpaired'
+" JSON manipulation and pretty printing
+Plugin 'tpope/vim-jdaddy'
+" Ghetto HTML/XML mappings
+Plugin 'tpope/vim-ragtag'
+" vim helpers for Unix
+Plugin 'tpope/vim-eunuch'
+" netrw enhancements - because NERDTree is a vim anti-pattern
+Plugin 'tpope/vim-vinegar'
 " Status/tabline
 Plugin 'bling/vim-airline'
 " Check syntax on :w
