@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-find /usr/local/Cellar -name htop -perm +111 -type f | while read -r htop_bin
+find /usr/local/Cellar -name htop -type f -perm +111 -a -not -user root |
+while read -r htop_bin
 do
   sudo chown root:wheel "$htop_bin"
   sudo chmod u+s "$htop_bin"
