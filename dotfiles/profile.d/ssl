@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function verify_ssl() {
+  local url
+  url="$1"
+
+  openssl s_client -showcerts -connect "$url:443"
+}
