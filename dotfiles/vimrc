@@ -103,6 +103,8 @@ if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
   colorscheme molokai
 endif
 
+set cryptmethod=blowfish2
+
 " Best ESC mapping
 inoremap <Leader><Leader> <ESC>
 vnoremap <Leader><Leader> <ESC>
