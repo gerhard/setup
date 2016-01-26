@@ -11,3 +11,10 @@ response_time() {
     "$url"
   done
 }
+
+response_headers() {
+  local url
+  url="$1"
+
+  curl -svL -o /dev/null "$url"
+}
