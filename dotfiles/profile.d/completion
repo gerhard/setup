@@ -1,17 +1,13 @@
 #!/bin/bash
 
-skip_ctest_because_it_has_incorrect_syntax() {
-  [[ "$completion" =~ ctest ]]
-}
-
-skip_docker_because_it_has_incorrect_syntax() {
-  [[ "$completion" =~ docker ]]
+skip_completions_with_incorrect_syntaxes() {
+  [[ "$completion" =~ aria2 ]]
 }
 
 if [ -d /usr/local/etc/bash_completion.d ]
 then
   for completion in /usr/local/etc/bash_completion.d/*
   do
-    skip_ctest_because_it_has_incorrect_syntax || skip_docker_because_it_has_incorrect_syntax || . "$completion"
+    skip_completions_with_incorrect_syntaxes || . "$completion"
   done
 fi
