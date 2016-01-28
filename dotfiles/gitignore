@@ -1,6 +1,6 @@
 *un~
 .DS_Store
-/.bundle
-/.vagrant
-/tags
-/tmp
+.bundle
+.vagrant
+tmp
+tags
