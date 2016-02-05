@@ -35,7 +35,8 @@ Plugin 'tpope/vim-eunuch'
 " netrw enhancements - because NERDTree is a vim anti-pattern
 Plugin 'tpope/vim-vinegar'
 " Status/tabline
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Check syntax on :w
 Plugin 'scrooloose/syntastic'
 " Dash integration
