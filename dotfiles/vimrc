@@ -57,11 +57,14 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'ap/vim-css-color'
 " JS formatting & syntax
 Plugin 'pangloss/vim-javascript'
+" Run Rspec specs from Vim
+Plugin 'thoughtbot/vim-rspec'
 
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
 Plugin 'godlygeek/tabular'
+
 call vundle#end()
 
 " display invisible characters
@@ -175,6 +178,12 @@ let g:syntastic_html_tidy_ignore_errors=[
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e
