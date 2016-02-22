@@ -1,8 +1,8 @@
 After setting up a new Mac with development tools, apps, and configuring it for
-the nth time, I was determined to automate the process.  I've looked at
+the Nth time, I was determined to automate the process.  I've looked at
 [sprout-wrap](https://github.com/pivotal-sprout/sprout-wrap),
 [osxc](https://osxc.github.io/) &amp; [boxen](https://boxen.github.com/), but
-the associated complexity was off-putting.  There had to be a simpler way.
+the associated complexity was off-putting. There had to be a simpler way.
 
 ## Why?
 
@@ -23,8 +23,6 @@ but I choose simplicity.
 
 ## How?
 
-### On a new Mac
-
 ```sh
 # Install Xcode Command Line Tools
 xcode-select --install
@@ -33,31 +31,25 @@ git clone https://github.com/gerhard/setup.git ~/.setup
 # Remove the homebrew casks, formulae etc. which you don't want, e.g.
 # rm ~/.setup/homebrew/casks/{alfred,istat-menus}
 # Run the setup (optionally, set a new name for your Mac)
-~/.setup/new my-new-mac
-# Restart the Mac for all system settings to apply correctly
-# Update system software
-~/.setup/update
+~/.setup/setup my-new-mac
+# Restart the Mac so that all system settings are applied correctly
+# Re-run the setup to pick up any updates
+~/.setup/setup
 ```
 
 During the setup, you will be asked for your password as some terminal commands
 require administrator privileges. Run `grep -r sudo ~/.setup` to find exactly
 which ones.
 
-Depending on the time that the `new` command will take to run, you might need
+Depending on the time that the `setup` command will take to run, you might need
 to enter this password multiple times. Not ideal, but automating this didn't
-feel right. It was complicated and didn't work consistently. Not to mention
-that I would rather enter my password multiple times than give a script
+feel right. I would rather enter my password multiple times than give a script
 extended admin privileges.
 
-Once the `new` command completes, restart the Mac so that all system settings
-can be applied correctly.
-
-Once the system restarts, run the `update` command to ensure that the system
-software is up to date. You will want to run this command periodically as it
-will keep both the system software &amp; configuration updated.
-
-Depending on the updates which were installed the first time you run the
-`update` command, you might need to restart again.
+Once the `setup` command completes, restart the Mac so that all system settings
+can be applied correctly, then run the `setup` command again to ensure that the
+system software is up to date. You will want to run this command periodically
+as it will keep both the system software &amp; configuration updated.
 
 I've kept the setup scripts minimal on purpose. There are extra setup steps
 which are best done manually. Some were not worth automating, others were just
@@ -68,10 +60,4 @@ all the steps which I still do manually on every new setup. As they are in
 list](https://github.com/blog/1375%0A-task-lists-in-gfm-issues-pulls-comments)
 format, they are perfectly suited for Issues. [These are the Macs which I've
 setup so far using this checklist
-template](https://github.com/gerhard/setup/issues).
-
-### Keep the system &amp; configuration updated
-
-```
-~/.setup/update
-```
+template](https://github.com/gerhard/setup/issues?q=is%3Aissue+is%3Aclosed).

@@ -9,6 +9,13 @@ main() {
   set_base_path
   apply_configs
   reload_modified_services
+  os_x_software_update
+  app_store_updates
+  update_package_sources
+  upgrade_installed_packages
+  upgrade_installed_casks
+  update_vim_plugins
+  cleanup
   success
 }
 
@@ -43,6 +50,48 @@ reload_modified_services() {
   )
 
   killall "${modified_services_uniq[@]}"
+}
+
+os_x_software_update() {
+  softwareupdate --install --all
+}
+
+app_store_updates() {
+  if which mas >&-
+  then
+    mas outdated | while read -r app_id_and_name
+    do
+      echo "Updating ${app_id_and_name##* }..."
+      mas install "${app_id_and_name%% *}"
+    done
+  fi
+}
+
+update_package_sources() {
+  brew update
+}
+
+upgrade_installed_packages() {
+  brew upgrade --all
+}
+
+upgrade_installed_casks() {
+  local cask
+
+  brew cask list | while read -r cask
+  do
+    brew cask install "$cask"
+  done
+}
+
+update_vim_plugins() {
+  vim +PluginUpdate +PluginClean! +qall
+}
+
+cleanup() {
+  brew cleanup -s --force
+  brew cask cleanup
+  sudo pkill -INT softwareupdate
 }
 
 success() {
