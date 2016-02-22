@@ -2,5 +2,6 @@
 
 for profile_config in ${HOME}/.profile.d/*
 do
+  # shellcheck disable=SC1090
   . "$profile_config"
 done
