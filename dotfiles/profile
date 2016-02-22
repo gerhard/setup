@@ -1,19 +1,5 @@
 #!/bin/bash
 
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend
-
-alias m=mvim
-export EDITOR=vim
-
-alias g=git
-alias t="tig --all"
-
-alias v=vim
-alias V=vagrant
-
-alias d=docker
-
 for profile_config in ${HOME}/.profile.d/*
 do
   . "$profile_config"
