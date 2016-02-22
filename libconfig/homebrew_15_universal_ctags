@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if brew uninstall ctags 2>&-
-then
-  echo "ctags has been forked and renamed to Universal Ctags" 
-fi
