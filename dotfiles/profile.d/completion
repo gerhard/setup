@@ -1,7 +1,7 @@
 #!/bin/bash
 
 skip_completions_with_incorrect_syntaxes() {
-  [[ "$completion" =~ aria2 ]]
+  [[ "$completion" =~ aria2|docker ]]
 }
 
 if [ -d /usr/local/etc/bash_completion.d ]
