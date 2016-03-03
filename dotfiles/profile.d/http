@@ -15,6 +15,7 @@ response_time() {
 response_headers() {
   local url
   url="$1"
+  shift
 
-  curl -svL -o /dev/null "$url"
+  curl -svL -o /dev/null "$url" "$@"
 }
