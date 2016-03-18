@@ -45,6 +45,8 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'kien/ctrlp.vim'
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'
+" Text filtering and alignment
+Plugin 'godlygeek/tabular'
 " Syntax highlighting, matching rules and mappings for the original Markdown
 Plugin 'plasticboy/vim-markdown'
 " Silver searcher, the ack replacement
@@ -65,7 +67,6 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
-Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
