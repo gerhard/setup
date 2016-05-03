@@ -192,6 +192,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 " map <Leader>l :call RunLastSpec()<CR>
 " map <Leader>a :call RunAllSpecs()<CR>
 
+" Gundo mapping
+nnoremap <Leader>u :GundoToggle<CR>
+
 " Automatic formatting
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.haml :%s/\s\+$//e
