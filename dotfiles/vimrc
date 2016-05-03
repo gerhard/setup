@@ -63,7 +63,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'thoughtbot/vim-rspec'
 " A light Vim plugin for previewing markdown files in a browser
 Plugin 'JamshedVesuna/vim-markdown-preview'
-
+" Syntax detection and highlighting for http://concourse.ci pipeline files
+Plugin 'luan/vim-concourse'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
@@ -256,6 +257,9 @@ augroup reload_vimrc " {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
+
+" Disable all folds when opening Concourse files
+au FileType concourse setlocal nofoldenable
 
 au BufRead,BufNewFile {Rakefile} set ft=ruby
 au BufRead,BufNewFile {Guardfile} set ft=ruby
