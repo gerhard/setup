@@ -19,3 +19,10 @@ response_headers() {
 
   curl -svL -o /dev/null "$url" "$@"
 }
+
+fast_dl() {
+  local url
+  url="$1"
+
+  aria2c -x 10 -j 10 -s 10 "$url"
+}
