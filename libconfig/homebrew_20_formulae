@@ -2,16 +2,10 @@
 
 installed_formulae="$(brew list)"
 
-formula_not_installed?() {
-  local formula="${1:?formula must be provided}"
-
-  ! [[ $installed_formulae =~ $formula ]]
-}
-
 pushd "${BASE_PATH}/homebrew/formulae" >&-
   for formula in *
   do
-    if formula_not_installed? "$formula"
+    if ! grep -qe "^$formula" < <(echo "$installed_formulae")
     then
       formula_options="$(cat "$formula")"
       bash -c "brew install $formula $formula_options"

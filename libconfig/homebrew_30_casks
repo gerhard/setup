@@ -5,6 +5,6 @@ installed_casks="$(brew cask list)"
 pushd "${BASE_PATH}/homebrew/casks" >&-
   for cask in *
   do
-    [[ $installed_casks =~ $cask ]] || brew cask install "$cask"
+    grep -qe "^$cask" < <(echo "$installed_casks") || brew cask install "$cask"
   done
 popd >&-
