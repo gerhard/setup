@@ -266,7 +266,7 @@ au BufRead,BufNewFile {Guardfile} set ft=ruby
 au BufRead,BufNewFile {Vagrantfile} set ft=ruby
 
 au BufRead,BufNewFile *.go set ft=go
-autocmd BufWritePre *.go :%s/\s\+$//e
+au BufWritePre *.go :%s/\s\+$//e
 
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
