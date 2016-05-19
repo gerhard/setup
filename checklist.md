@@ -1,7 +1,7 @@
-- [ ] run ~/.setup/new [preferred-hostname]
+- [ ] run ~/.setup/setup [preferred-hostname]
 - [ ] restart
-- [ ] run ~/.setup/update
-- [ ] restart if required by system software update
+- [ ] run ~/.setup/setup
+- [ ] restart if required by System Software Update
 - [ ] configure Terminal/iTerm vim airline font (Meslo LG S for Powerline)
 - [ ] configure Three finger drag trackpad
 - [ ] configure App Expose trackpad
