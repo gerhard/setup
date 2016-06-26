@@ -98,7 +98,7 @@ cleanup() {
 remove_previous_cask_versions() {
   local cask version_to_delete
 
-  pushd /opt/homebrew-cask/Caskroom >&-
+  pushd /usr/local/Caskroom >&-
     for cask in *
     do
       # shellcheck disable=SC2012
