@@ -4,7 +4,7 @@ set main-view-id-display = yes
 # Refresh views when a modification is detected
 set refresh-mode = auto
 
-# Rich graphics because it's not the 90s
+# Use UTF-8 characters for graphical elements
 set line-graphics = utf-8
 
 bind main f !git fetch
