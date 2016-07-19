@@ -5,6 +5,7 @@
   c = clone --recursive
   # Commit all changes
   ca = !"git add -A && git commit -av"
+  d = !"git duet --global"
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
