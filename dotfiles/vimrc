@@ -88,7 +88,8 @@ set smartcase                   " ... unless they contain at least one capital l
 " Additions from http://c7.se/switching-to-vundle/
 filetype plugin indent on
 set cursorline
-set modelines=0
+set modeline
+set modelines=1
 set clipboard=unnamed,unnamedplus
 set synmaxcol=128
 set ttyscroll=10
