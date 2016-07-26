@@ -3,6 +3,7 @@
 - [ ] run ~/.setup/setup
 - [ ] restart if required by System Software Update
 - [ ] configure Terminal/iTerm vim airline font (Meslo LG S for Powerline)
+- [ ] configure iTerm **Send text at start:** `tmux -CC attach`
 - [ ] configure Three finger drag trackpad
 - [ ] configure App Expose trackpad
 - [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
