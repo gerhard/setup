@@ -8,6 +8,7 @@ if [ -d /usr/local/etc/bash_completion.d ]
 then
   for completion in /usr/local/etc/bash_completion.d/*
   do
+    # shellcheck source=/dev/null
     skip_completions_with_incorrect_syntaxes || . "$completion"
   done
 fi
