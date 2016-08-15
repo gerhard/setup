@@ -177,12 +177,14 @@ let g:ctrlp_use_caching = 0
 
 " Syntastic config
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_html_tidy_ignore_errors=[
 \'proprietary attribute "ng-',
 \'proprietary attribute "marked',
 \'proprietary attribute "analytics',
 \]
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
