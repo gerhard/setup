@@ -1,4 +1,0 @@
-#!/bin/bash
-
-! [ -d "$HOME/Desktop/snatch" ] ||
-  eval "$("$HOME/Desktop/snatch/bin/snatch" init -)"

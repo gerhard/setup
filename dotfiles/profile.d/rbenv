@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if which rbenv >&-
-then
-  export RBENV_ROOT=/usr/local/var/rbenv
-  eval "$(rbenv init -)"
-fi

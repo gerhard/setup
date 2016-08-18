@@ -8,3 +8,9 @@ alias bi="bundle install"
 alias bu="bundle update"
 
 alias bout="bundle outdated"
+
+if which rbenv >&-
+then
+  export RBENV_ROOT=/usr/local/var/rbenv
+  eval "$(rbenv init -)"
+fi

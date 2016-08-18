@@ -1,5 +1,24 @@
 #!/bin/bash
 
+add_homebrew_sbin_to_path() {
+  export PATH="/usr/local/sbin:$PATH"
+}
+
+enable_homebrew_packages_bash_autocompletion() {
+  if [ -d /usr/local/etc/bash_completion.d ]
+  then
+    for completion in /usr/local/etc/bash_completion.d/*
+    do
+      # shellcheck source=/dev/null
+      __skip_completions_with_incorrect_syntaxes || . "$completion"
+    done
+  fi
+}
+
+__skip_completions_with_incorrect_syntaxes() {
+  [[ "$completion" =~ aria2|docker ]]
+}
+
 load_homebrew_github_api_key_from_keychain() {
     github_api_key_env=HOMEBREW_GITHUB_API_TOKEN 
     load_github_api_key_from_env="security find-generic-password -a $github_api_key_env -w"
@@ -28,4 +47,6 @@ In the default Keychain, add a new item with:
 EOF
 }
 
+add_homebrew_sbin_to_path
+enable_homebrew_packages_bash_autocompletion
 load_homebrew_github_api_key_from_keychain
