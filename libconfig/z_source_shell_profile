@@ -2,5 +2,5 @@
 
 shell_profile="${HOME}/.profile"
 
-# shellcheck disable=SC1090
+# shellcheck source=/dev/null
 [ ! -e "$shell_profile" ] || . "$shell_profile"

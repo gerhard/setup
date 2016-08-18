@@ -37,7 +37,7 @@ apply_configs() {
   pushd "${BASE_PATH}/libconfig" >&-
     for config in *
     do
-      # shellcheck disable=SC1090
+      # shellcheck source=/dev/null
       . "$config"
     done
   popd >&-
