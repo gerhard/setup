@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function verify_ssl() {
-  local url
-  url="$1"
+  local fqdn
+  fqdn="$1"
 
-  openssl s_client -showcerts -connect "$url:443"
+  openssl s_client -showcerts -servername "$fqdn" -connect "$fqdn:443"
 }
