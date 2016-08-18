@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+stack update
+stack setup
+
+stack install unused
