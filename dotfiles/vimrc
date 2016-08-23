@@ -71,6 +71,8 @@ Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 " Visualize your Vim undo tree
 Plugin 'sjl/gundo.vim'
+" Vim configuration files for Elixir
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
