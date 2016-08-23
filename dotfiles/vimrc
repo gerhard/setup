@@ -186,7 +186,7 @@ let g:syntastic_html_tidy_ignore_errors=[
 \'proprietary attribute "marked',
 \'proprietary attribute "analytics',
 \]
-let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
