@@ -4,3 +4,5 @@
 --exclude=vendor
 --exclude=node_modules
 --exclude=coverage
+--exclude=_build
+--exclude=deps
