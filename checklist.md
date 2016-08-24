@@ -1,31 +1,25 @@
+- [ ] copy HOMEBREW_GITHUB_API_TOKEN from iCloud keychain to login keychain
+- [ ] copy RUBY_TAPAS_* from iCloud keychain to login keychain
+- [ ] configure Three finger drag trackpad
+- [ ] configure App Expose trackpad
+- [ ] disable Caps Lock
+- [ ] personalise Desktop wallpaper
+- [ ] add VPN connection & set as first network interface
 - [ ] run ~/.setup/setup [preferred-hostname]
 - [ ] restart
 - [ ] run ~/.setup/setup
 - [ ] restart if required by System Software Update
-- [ ] configure Terminal/iTerm vim airline font (Meslo LG S for Powerline)
-- [ ] configure iTerm **Send text at start:** `tmux -CC attach`
-- [ ] configure Three finger drag trackpad
-- [ ] configure App Expose trackpad
-- [ ] add Google account to Chrome for bookmarks, tabs &amp; addons sync
-- [ ] add VPN connection
-- [ ] set VPN as the first network interface
-- [ ] disable Caps Lock
-- [ ] restore Photos from backup
-- [ ] restore Music from backup
-- [ ] restore Documents from backup
-- [ ] restore Desktop from backup
-- [ ] restore Downloads from backup
-- [ ] restore Stickies.db from backup
-- [ ] personalise Desktop wallpaper
-- [ ] add Google Calendar feed to Calendar
+- [ ] configure Syncthing
+- [ ] link Chrome to Google account
 - [ ] add Alfred license
 - [ ] configure Alfred Hotkey (potentially remap Spotlight Hotkey)
 - [ ] map Alfred Clipboard Viewer Hotkey to Alt+Cmd+V
-- [ ] add iStat Menus license
-- [ ] configure iStat Menus
 - [ ] allow SizeUp in Privacy &gt; Accessibility
 - [ ] start SizeUp at login
 - [ ] add SizeUp (Irradiated Software) license
+- [ ] configure Terminal/iTerm vim airline font (Meslo LG S for Powerline)
 - [ ] Skype login &amp; **Sign me in when Skype starts**
-- [ ] install apps from App Store &gt; **Purchases**
+- [ ] add iStat Menus license
+- [ ] configure iStat Menus
+- [ ] personalise toolbar
 - [ ] generate/add SSH keys
