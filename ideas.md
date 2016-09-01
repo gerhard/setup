@@ -1,3 +1,4 @@
+* [Brewfile](https://robots.thoughtbot.com/brewfile-a-gemfile-but-for-homebrew)
 * [Multi-part vimrc](http://yanpritzker.com/2012/01/20/the-cleanest-vimrc-youve-ever-seen/)
 * [humanism.sh](https://github.com/cyphunk/humanism.sh), subjective but sensible defaults for shell use. Ubuntu, OSX, FreeBSD.
 * [Ultimate vimrc](http://amix.dk/vim/vimrc.html)
