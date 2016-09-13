@@ -9,6 +9,9 @@ alias bs="bosh status"
 alias bvs="bosh vms --vitals"
 alias bis="bosh instances"
 
+alias bcc="bosh cloud-config"
+alias bccu="bosh update cloud-config"
+
 # Releases
 alias brs="bosh releases"
 alias brc="bosh create release"
