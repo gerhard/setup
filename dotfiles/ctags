@@ -6,3 +6,4 @@
 --exclude=coverage
 --exclude=_build
 --exclude=deps
+--langmap=ruby:+.rake
