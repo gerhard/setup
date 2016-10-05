@@ -72,7 +72,7 @@ update_package_sources() {
 }
 
 upgrade_installed_packages() {
-  brew upgrade --all
+  brew upgrade
 }
 
 upgrade_installed_casks() {
