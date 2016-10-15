@@ -157,7 +157,7 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
 " Show hidden files in search list
 let g:ctrlp_show_hidden = 1
 " Search by filename
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
 " No max file limit
 let g:ctrlp_max_files = 0
 " Set the working directory
