@@ -119,6 +119,9 @@ endif
 
 set cryptmethod=blowfish2
 
+" Disable $( ) red highlights in shell scripts
+let g:is_posix = 1
+
 " Best ESC mapping
 inoremap <Leader><Leader> <ESC>
 vnoremap <Leader><Leader> <ESC>
