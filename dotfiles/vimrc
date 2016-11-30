@@ -93,7 +93,9 @@ set cursorline
 set modeline
 set modelines=1
 set clipboard=unnamed,unnamedplus
-set synmaxcol=128
+" Controls the max width after which syntax highlighting stops being applied
+" Setting this to a high value might result in a sluggish vim
+set synmaxcol=300
 set ttyscroll=10
 set number
 set nowritebackup
