@@ -61,8 +61,6 @@ Plugin 'ap/vim-css-color'
 Plugin 'pangloss/vim-javascript'
 " Run Rspec specs from Vim
 Plugin 'thoughtbot/vim-rspec'
-" Syntax detection and highlighting for http://concourse.ci pipeline files
-Plugin 'luan/vim-concourse'
 " Develop Golang with joy
 Plugin 'fatih/vim-go'
 " The Vim class outline viewer
