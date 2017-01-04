@@ -75,6 +75,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-erlang/vim-erlang-compiler'
 " Generate Vim tags for Erlang files
 Plugin 'vim-erlang/vim-erlang-tags'
+" Dockerfile syntax
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 
