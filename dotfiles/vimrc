@@ -71,8 +71,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
 " Vim configuration files for Elixir
 Plugin 'elixir-lang/vim-elixir'
-" Erlang syntax checking and compiler plugin for Vim
-Plugin 'vim-erlang/vim-erlang-compiler'
 " Generate Vim tags for Erlang files
 Plugin 'vim-erlang/vim-erlang-tags'
 " Dockerfile syntax
