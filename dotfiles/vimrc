@@ -199,6 +199,8 @@ let g:syntastic_html_tidy_ignore_errors=[
 \'proprietary attribute "analytics',
 \]
 let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
+" Allow following other files
+let g:syntastic_sh_shellcheck_args = "-x"
 
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
