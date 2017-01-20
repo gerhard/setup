@@ -355,3 +355,6 @@ let g:tagbar_type_ruby = {
         \ 'F:singleton methods'
     \ ]
 \ }
+
+set exrc
+set secure
