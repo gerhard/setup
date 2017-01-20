@@ -87,12 +87,12 @@ call vundle#end()
 set list
 
 " Additions from http://mislav.uniqpath.com/2011/12/vim-revisited/
-set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces, not tabs (optional)
-set hlsearch                    " highlight matches
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
+set nowrap         " don't wrap lines
+set shiftwidth=2   " a tab is two spaces
+set expandtab      " use spaces, not tabs (optional)
+set hlsearch       " highlight matches
+set ignorecase     " searches are case insensitive...
+set smartcase      " ... unless they contain at least one capital letter
 
 " Additions from http://c7.se/switching-to-vundle/
 filetype plugin indent on
