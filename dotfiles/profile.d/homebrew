@@ -4,8 +4,11 @@ add_homebrew_sbin_to_path() {
   export PATH="/usr/local/sbin:$PATH"
 }
 
-__skip_completions_with_incorrect_syntaxes() {
-  [[ "$completion" =~ aria2|docker ]]
+enable_homebrew_bash_completion() {
+  if [ -f /usr/local/etc/bash_completion ]
+  then
+    . /usr/local/etc/bash_completion
+  fi
 }
 
 load_homebrew_github_api_key_from_keychain() {
@@ -37,4 +40,5 @@ EOF
 }
 
 add_homebrew_sbin_to_path
+enable_homebrew_bash_completion
 load_homebrew_github_api_key_from_keychain
