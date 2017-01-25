@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function verify_ssl() {
+verify_ssl() {
   local fqdn
   fqdn="$1"
 
