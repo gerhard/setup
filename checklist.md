@@ -1,5 +1,4 @@
 - [ ] copy HOMEBREW_GITHUB_API_TOKEN from iCloud keychain to login keychain
-- [ ] copy RUBY_TAPAS_* from iCloud keychain to login keychain
 - [ ] copy ANSIBLE_VAULT_KEY from iCloud keychain to login keychain
 - [ ] configure Three finger drag trackpad
 - [ ] configure App Expose trackpad
