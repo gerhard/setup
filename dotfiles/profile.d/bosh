@@ -21,7 +21,8 @@ alias brd="bosh delete release"
 
 # Deployments
 alias bd="bosh deployment"
-alias bdn="bosh -n deploy"
+alias bdn="bosh deploy --no-redact"
+alias bdf="bosh -n deploy"
 alias bds="bosh deployments"
 alias bdd="bosh delete deployment"
 alias bde="bosh edit deployment"
