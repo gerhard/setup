@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pw() {
+  sf-pwgen -l 20 -c 10 "$@"
+}
