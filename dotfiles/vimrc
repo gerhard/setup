@@ -65,8 +65,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'thoughtbot/vim-rspec'
 " Develop Golang with joy
 Plugin 'fatih/vim-go'
-" The Vim class outline viewer
-Plugin 'majutsushi/tagbar'
 " Visualize your Vim undo tree
 Plugin 'sjl/gundo.vim'
 " Vim configuration files for Elixir
