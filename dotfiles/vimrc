@@ -91,7 +91,7 @@ set smartcase      " ... unless they contain at least one capital letter
 filetype plugin indent on
 set cursorline
 set modeline
-set modelines=1
+set modelines=5
 set clipboard=unnamed,unnamedplus
 " Controls the max width after which syntax highlighting stops being applied
 " Setting this to a high value might result in a sluggish vim
