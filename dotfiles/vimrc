@@ -303,8 +303,7 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go set listchars=tab:  
 
-au FileType erlang set shiftwidth=4
-au FileType erlang set expandtab
+au FileType erlang setlocal shiftwidth=4
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
