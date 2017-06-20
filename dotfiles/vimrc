@@ -71,11 +71,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-erlang/vim-erlang-tags'
 " Dockerfile syntax
 Plugin 'ekalinin/Dockerfile.vim'
-" Text snippets, TextMate style
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
