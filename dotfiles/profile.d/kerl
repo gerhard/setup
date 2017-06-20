@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Build Erlang from https://github.com/erlang/otp/releases
+KERL_BUILD_BACKEND=git
+export KERL_BUILD_BACKEND
