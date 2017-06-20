@@ -71,6 +71,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-erlang/vim-erlang-tags'
 " Dockerfile syntax
 Plugin 'ekalinin/Dockerfile.vim'
+" Perform diffs on blocks of code
+Plugin 'AndrewRadev/linediff.vim'
 
 call vundle#end()
 
