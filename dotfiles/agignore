@@ -5,3 +5,5 @@ bundle
 vendor
 node_modules
 *.sock
+*.beam
+logs
