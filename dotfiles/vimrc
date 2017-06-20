@@ -38,9 +38,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Check syntax on :w
-" Plugin 'scrooloose/syntastic'
-" Temporarily use JSP's branch which adds Erlang.mk support
-Plugin 'dumbbell/syntastic'
+Plugin 'scrooloose/syntastic'
 " Dash integration
 Plugin 'rizzatti/dash.vim'
 " The one & only vim finder
