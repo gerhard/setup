@@ -257,11 +257,6 @@ nnoremap <Leader>= <C-W>=
 nnoremap <Leader>p :tabe<CR>
 nnoremap <Leader>] :tabn<CR>
 nnoremap <Leader>[ :tabp<CR>
-nnoremap <Leader>1 1gt
-nnoremap <Leader>2 2gt
-nnoremap <Leader>3 3gt
-nnoremap <Leader>4 4gt
-nnoremap <Leader>5 5gt
 
 " Use tab to match bracket pairs
 nnoremap <Tab> %
