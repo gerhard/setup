@@ -3,3 +3,6 @@
 # Build Erlang from https://github.com/erlang/otp/releases
 KERL_BUILD_BACKEND=git
 export KERL_BUILD_BACKEND
+
+# Get shell history out of the box with Erlang/OTP 20
+export ERL_AFLAGS="-kernel shell_history enabled"
