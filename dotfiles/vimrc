@@ -103,6 +103,9 @@ set noswapfile
 set nobackup
 set colorcolumn=80
 
+" Use the old regex engine. The new one is slowing down when editing .erl files
+set re=1
+
 " Abandon unloaded buffers
 set hidden
 
