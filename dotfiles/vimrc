@@ -53,6 +53,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 " The one and only colour scheme
 Plugin 'justinmk/molokai'
+" Retro groove color scheme for Vim
+Plugin 'morhetz/gruvbox'
 " Alternate between relative numbering and absolute numbering
 Plugin 'myusuf3/numbers.vim'
 " Highlight colours in files
@@ -119,10 +121,7 @@ let mapleader=","
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
 
 let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary
-set guifont=Meslo\ LG\ S\ for\ Powerline:h12
-if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
-  colorscheme molokai
-endif
+colorscheme gruvbox
 
 set cryptmethod=blowfish2
 
