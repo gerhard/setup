@@ -37,8 +37,8 @@ Plugin 'tpope/vim-vinegar'
 " Status/tabline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Uses NeoVim and Vim 8 job control functions and timers to run linters on the contents of text buffers and return errors as text is changed in Vim
-Plugin 'w0rp/ale'
+" Check syntax on :w
+Plugin 'scrooloose/syntastic'
 " Dash integration
 Plugin 'rizzatti/dash.vim'
 " The one & only vim finder
@@ -184,6 +184,19 @@ let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor --hidden --skip
 " ag is fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 0
 
+" Syntastic config
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_html_tidy_ignore_errors=[
+\'proprietary attribute "ng-',
+\'proprietary attribute "marked',
+\'proprietary attribute "analytics',
+\]
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
+" Allow following other files
+let g:syntastic_sh_shellcheck_args = "-x"
+
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
 
@@ -278,6 +291,7 @@ let g:elm_format_autosave = 1
 " <Leader>e	Shows the detail of the current error or warning.
 " <Leader>d	Shows the type and docs for the word under the cursor.
 " <Leader>w	Opens the docs web page for the word under the cur
+let g:elm_syntastic_show_warnings = 1
 
 au BufRead,BufNewFile *.go set ft=go
 au BufWritePre *.go :%s/\s\+$//e
