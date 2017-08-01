@@ -119,7 +119,9 @@ let mapleader=","
 set completeopt=menu " otherwise autocomplete options will appear in a top preview pane
 
 let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary
-colorscheme gruvbox
+if filereadable( expand("$HOME/.vim/bundle/gruvbox/colors/gruvbox.vim") )
+  colorscheme gruvbox
+endif
 
 set cryptmethod=blowfish2
 
