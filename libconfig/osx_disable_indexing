@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# http://tech-hacks.net/tech/apple/255/how-to-disable-spotlight-indexing-on-mac-os-sierra/
-sudo mdutil -a -i off
