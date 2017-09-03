@@ -36,6 +36,5 @@ pdld() {
   youtube_playlist_url="${1:?First argument must be YouTube Playlist URL}"
   shift 1
 
-  youtube-dl --download-archive pdld.txt "$youtube_playlist_url" "$@"
-  ydld "$youtube_playlist_url" "$@"
+  ydld --download-archive pdld.txt "$youtube_playlist_url" "$@"
 }
