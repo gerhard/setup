@@ -6,3 +6,6 @@ export KERL_BUILD_BACKEND
 
 # Get shell history out of the box with Erlang/OTP 20
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Disable Erlang crash dumps
+export ERL_CRASH_DUMP_SECONDS=0
