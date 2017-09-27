@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# xmlto fix for building rabbitmq docs
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
