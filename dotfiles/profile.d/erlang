@@ -9,3 +9,14 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Disable Erlang crash dumps
 export ERL_CRASH_DUMP_SECONDS=0
+
+erlang_observe() {
+  local cookie
+  if [ -z "$1" ]
+  then
+    cookie="-setcookie $1"
+    shift 1
+  fi
+
+  erl -sname observer -hidden "$cookie" -run observer "$@"
+}
