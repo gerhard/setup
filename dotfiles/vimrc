@@ -282,6 +282,8 @@ au BufRead,BufNewFile {Vagrantfile} set ft=ruby
 
 au FileType erlang setlocal shiftwidth=4
 
+au BufRead,BufNewFile *.ejs set ft=html
+
 " Run elm-format on save
 let g:elm_format_autosave = 1
 " <Leader>m	Compile the current buffer.
