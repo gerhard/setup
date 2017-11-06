@@ -14,8 +14,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 " GitHub extension for vim-fugitive
 Plugin 'tpope/vim-rhubarb'
-" Ends certain structures automatically
-Plugin 'tpope/vim-endwise'
 " Remaps . in a way that plugins can tap into
 Plugin 'tpope/vim-repeat'
 " Comment stuff out
