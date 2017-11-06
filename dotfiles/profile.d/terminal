@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# enable ls coloring
+export CLICOLOR=1
