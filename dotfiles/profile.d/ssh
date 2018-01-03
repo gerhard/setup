@@ -1,0 +1,62 @@
+#!/bin/bash
+
+rotate_ssh_key() {
+  _generate_new_ssh_key
+  _add_new_ssh_key_to_keychain
+  _copy_new_ssh_pub_key
+  _start_rotations
+  _rotate_github
+  _rotate_infrastructure
+  _rotate_nas
+  _remove_old_ssh_key
+  _end_rotations
+}
+
+_generate_new_ssh_key() {
+  # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
+  ssh-keygen -t ed25519 -a 100 -f "$(_new_ed25519_ssh_key)"
+}
+
+_add_new_ssh_key_to_keychain() {
+  ssh-add -K "$(_new_ed25519_ssh_key)"
+}
+
+_copy_new_ssh_pub_key() {
+  pbcopy < "$(_new_ed25519_ssh_key).pub"
+  echo "
+The public part of your new SSH key is in your clipboard"
+}
+
+_new_ed25519_ssh_key() {
+  echo ~/.ssh/"$(hostname)_$(date +'%Y%m%d')_ed25519"
+}
+
+_start_rotations() {
+  echo "Time to start rotating your old SSH keys, press enter as you make progress"
+}
+
+_rotate_github() {
+  read -rp "
+I've rotated my SSH key on GitHub https://github.com/settings/keys " -n 1
+}
+
+_rotate_infrastructure() {
+  read -rp "
+I've rotated my SSH key across the entire infrastructure " -n 1
+}
+
+_rotate_nas() {
+  read -rp "
+I've rotated my SSH key on the NAS " -n 1
+}
+
+_remove_old_ssh_key() {
+  read -rp "
+I've removed my old SSH key from SSH Agent & Keychain" -n 1
+}
+
+_end_rotations() {
+  echo "
+👏 Yet another successfull SSH key rotation 👏
+"
+}
