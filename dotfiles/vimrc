@@ -71,6 +71,8 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'AndrewRadev/linediff.vim'
 " Elm plugin for Vim
 Plugin 'ElmCast/elm-vim'
+" Basic vim/terraform integration
+Plugin 'hashivim/vim-terraform.git'
 
 call vundle#end()
 
