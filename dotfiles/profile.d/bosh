@@ -1,39 +1,3 @@
 #!/bin/bash
 
 alias b="bosh"
-
-alias bt="bosh target"
-alias bts="bosh targets"
-alias bs="bosh status"
-
-alias bvs="bosh vms --vitals"
-alias bis="bosh instances"
-
-alias bcc="bosh cloud-config"
-alias bccu="bosh update cloud-config"
-
-# Releases
-alias brs="bosh releases"
-alias brc="bosh create release"
-alias brcf="bosh create release --force"
-alias bru="bosh upload release"
-alias brd="bosh delete release"
-
-# Deployments
-alias bd="bosh deployment"
-alias bdn="bosh deploy --no-redact"
-alias bdf="bosh -n deploy"
-alias bds="bosh deployments"
-alias bdd="bosh delete deployment"
-alias bde="bosh edit deployment"
-
-# Manifests
-alias bmd="bosh download manifest"
-
-# Stemcells
-alias bss="bosh stemcells"
-alias bsu="bosh upload stemcell"
-
-# Errands
-alias bes="bosh errands"
-alias ber="bosh run errand"
