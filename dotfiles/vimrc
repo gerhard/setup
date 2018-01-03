@@ -37,8 +37,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Check syntax on :w
 Plugin 'scrooloose/syntastic'
-" Dash integration
-Plugin 'rizzatti/dash.vim'
 " The one & only vim finder
 Plugin 'kien/ctrlp.vim'
 " Perform all your vim insert mode completions with Tab
@@ -141,9 +139,6 @@ nnoremap <Leader>x :x<CR>
 
 " Git ncurses
 nnoremap <Leader>g :!tig --all<CR>
-
-" Dash
-nmap <silent> <Leader>d <plug>DashSearch
 
 " Disable automatic folding
 let g:vim_markdown_folding_disabled=1
