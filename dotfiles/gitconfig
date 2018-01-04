@@ -26,6 +26,7 @@
 [user]
   name = Gerhard Lazu
   email = gerhard@lazu.co.uk
+  signingkey = D3A73F0CB272E7DF
 [github]
   user = gerhard
 [credential]
@@ -56,3 +57,4 @@
 [commit]
   template = ~/.gitcommit
   verbose = true
+  gpgsign = true
