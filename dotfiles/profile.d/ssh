@@ -6,6 +6,7 @@ rotate_ssh_key() {
   _copy_new_ssh_pub_key
   _start_rotations
   _rotate_github
+  _rotate_bitbucket
   _rotate_infrastructure
   _rotate_nas
   _remove_old_ssh_key
@@ -38,6 +39,11 @@ _start_rotations() {
 _rotate_github() {
   read -rp "
 I've rotated my SSH key on GitHub https://github.com/settings/keys " -n 1
+}
+
+_rotate_bitbucket() {
+  read -rp "
+I've rotated my SSH key on Bitbucket https://bitbucket.org/account/user/gerhardlazu/ssh-keys " -n 1
 }
 
 _rotate_infrastructure() {
