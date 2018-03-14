@@ -10,14 +10,18 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # Disable Erlang crash dumps
 export ERL_CRASH_DUMP_SECONDS=0
 
+timestamp() {
+  date +'%Y%m%d_%H%M%S'
+}
+
 eobs() {
-  erl -sname observe -hidden \
+  erl -sname "observe-$(timestamp)" -hidden \
     -setcookie "${COOKIE:?must be set}" \
     -run observer
 }
 
 esh() {
-  erl -sname remote -hidden \
+  erl -sname "remote-$(timestamp)" -hidden \
     -setcookie "${COOKIE:?must be set}" \
     -remsh "${RMQ_NODE:?must be set}"
 }
