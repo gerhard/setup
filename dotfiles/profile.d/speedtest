@@ -1,0 +1,19 @@
+#!/bin/bash
+
+test_download() {
+  _online_iperf3 --reverse
+}
+
+test_upload() {
+  _online_iperf3
+}
+
+_online_iperf3() {
+  for port in {5200..5209}
+  do
+    # shellcheck disable=SC2068
+    iperf3 -c ping.online.net -p $port $@ && break
+    echo "Trying next port..."
+    sleep 1
+  done
+}
