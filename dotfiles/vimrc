@@ -73,6 +73,8 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'ElmCast/elm-vim'
 " Basic vim/terraform integration
 Plugin 'hashivim/vim-terraform.git'
+" Beautify JS, JSON, HTML & CSS files
+Plugin 'maksimr/vim-jsbeautify'
 
 call vundle#end()
 
