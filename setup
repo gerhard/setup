@@ -3,7 +3,6 @@
 [ -z "$DEBUG" ] || set -x
 
 export MY_HOSTNAME="$1"
-RELOAD_SERVICES=()
 
 main() {
   set_base_path
@@ -44,12 +43,7 @@ apply_configs() {
 }
 
 reload_modified_services() {
-  local modified_services=(${RELOAD_SERVICES[@]:?must be defined})
-  local modified_services_uniq=(
-    $(printf "%s\n" "${modified_services[@]}" | sort -u)
-  )
-
-  killall "${modified_services_uniq[@]}"
+  killall Finder Dock
 }
 
 os_x_software_update() {

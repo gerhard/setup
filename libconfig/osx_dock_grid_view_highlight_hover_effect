@@ -1,3 +1,1 @@
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
-RELOAD_SERVICES+=(Dock)
