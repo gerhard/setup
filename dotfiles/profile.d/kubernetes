@@ -1,0 +1,4 @@
+#!/bin/bash
+
+alias k="kubectl"
+alias h="helm"
