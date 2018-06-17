@@ -33,13 +33,14 @@ set_base_path() {
 apply_configs() {
   local config
 
-  pushd "${BASE_PATH}/libconfig" >&-
+  (
+    cd "${BASE_PATH}/libconfig"
     for config in *
     do
       # shellcheck source=/dev/null
       . "$config"
     done
-  popd >&-
+  )
 }
 
 reload_modified_services() {
@@ -92,7 +93,8 @@ cleanup() {
 remove_previous_cask_versions() {
   local cask version_to_delete
 
-  pushd /usr/local/Caskroom >&-
+  (
+    cd /usr/local/Caskroom
     for cask in *
     do
       # shellcheck disable=SC2012
@@ -101,7 +103,7 @@ remove_previous_cask_versions() {
         sudo rm -r "$cask/$version_to_delete"
       done
     done
-  popd >&-
+  )
 }
 
 success() {

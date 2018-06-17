@@ -1,9 +1,10 @@
 #!/bin/bash
 
-pushd "$HOME" >&-
+(
+  cd "$HOME" || exit 1
   if [ ! -L Downloads ]
   then
     sudo rm -fR Downloads
     ln -s Desktop Downloads
   fi
-popd >&-
+)

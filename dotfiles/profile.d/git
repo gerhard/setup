@@ -7,8 +7,8 @@ alias t="tig --all"
 unpair() {
   if which git >&-
   then
-    pushd "$HOME/.setup" >&-
-      git checkout dotfiles/gitconfig
-    popd >&-
+    (
+      cd "$HOME/.setup" && git checkout dotfiles/gitconfig
+    )
   fi
 }

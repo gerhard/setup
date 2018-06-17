@@ -2,9 +2,10 @@
 
 export GOPATH="${GOPATH:-"${HOME}/go"}"
 
-pushd "${BASE_PATH}/go/packages" >&-
+(
+  cd "${BASE_PATH}/go/packages"
   for pkg in *
   do
     go get "${pkg//\~//}"
   done
-popd >&-
+)

@@ -2,7 +2,8 @@
 
 installed_formulae="$(brew list)"
 
-pushd "${BASE_PATH}/homebrew/formulae" >&-
+(
+  cd "${BASE_PATH}/homebrew/formulae"
   for formula in *
   do
     if ! grep -qe "^$formula" < <(echo "$installed_formulae")
@@ -11,4 +12,4 @@ pushd "${BASE_PATH}/homebrew/formulae" >&-
       bash -c "brew install $formula $formula_options"
     fi
   done
-popd >&-
+)

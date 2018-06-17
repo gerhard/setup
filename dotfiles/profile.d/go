@@ -16,9 +16,9 @@ checkout_go_stdlib_version_that_matches_runtime() {
   go_stdlib_src_path="${GOPATH}/src/github.com/golang/go"
   go_runtime_version="$(go version | awk '{ print $3 }')"
 
-  pushd "$go_stdlib_src_path" >&-
-    git checkout "$go_runtime_version"
-  popd >&-
+  (
+    cd "$go_stdlib_src_path" && git checkout "$go_runtime_version"
+  )
 }
 
 find_go_stdlib_src_files() {
