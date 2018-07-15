@@ -2,3 +2,14 @@
 
 # enable ls coloring
 export CLICOLOR=1
+
+r() {
+  while true
+  do
+    R="$("$@")"
+    clear
+    date
+    echo -e "$R"
+    sleep 2
+  done
+}
