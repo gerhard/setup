@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Prompt variables
+# PS1 : Primary prompt string. The default value is \s-\v\$ .
+# PS2 : Secondary prompt string. The default is >
+# PS3 : Prompt for the select command
+# PS4 : Printed before each command Bash displays during an execution trace. The first character of PS4 is replicated multiple times, as necessary, to indicate multiple levels of indirection. The default is +
+
+# Syntax (from the Bash manual)
+# \a : An ASCII bell character (07)
+# \d : The date in “Weekday Month Date” format (e.g., “Tue May 26”)
+# \D{format} : the format is passed to strftime(3) and the result is inserted into the prompt string; an empty format results in a locale-specific time representation. The braces are required
+# \e : An ASCII escape character (033)
+# \h : The hostname up to the first ‘.’
+# \H : The hostname
+# \j : The number of jobs currently managed by the shell
+# \l : The basename of the shell's terminal device name
+# \n : Newline
+# \r : Carriage return
+# \s : The name of the shell, the basename of $0 (the portion following the final slash)
+# \t : The current time in 24-hour HH:MM:SS format
+# \T : The current time in 12-hour HH:MM:SS format
+# \@ : The current time in 12-hour am/pm format
+# \A : The current time in 24-hour HH:MM format
+# \u : The username of the current user
+# \v : The version of Bash (e.g., 2.00)
+# \V : The release of Bash, version + patch level (e.g., 2.00.0)
+# \w : The current working directory, with $HOME abbreviated with a tilde
+# \W : The basename of the current working directory, with $HOME abbreviated with a tilde
+# \! : The history number of this command
+# \# : The command number of this command
+# \$ : If the effective UID is 0, a #, otherwise a $
+# \nnn : the character corresponding to the octal number nnn
+# \\ : A backslash
+# \[ : Begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt
+# \] : end a sequence of non-printing characters
+
+export PS1='\[\e[93m\w\] \[\e[0m\]'
