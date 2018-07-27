@@ -35,4 +35,7 @@
 # \[ : Begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt
 # \] : end a sequence of non-printing characters
 
-export PS1='\[\e[93m\w\] \[\e[0m\]'
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+# https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
+
+export PS1='\[\033[93;1m\]\w\[\033[0m\] '
