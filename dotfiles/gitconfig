@@ -26,7 +26,7 @@
 [user]
   name = Gerhard Lazu
   email = gerhard@lazu.co.uk
-  signingkey = D3A73F0CB272E7DF
+  signingkey = 19B6FC415186F6136BC8A1B8A28DE70C9444D7A6
 [github]
   user = gerhard
 [credential]
