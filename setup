@@ -52,7 +52,7 @@ os_x_software_update() {
 }
 
 app_store_updates() {
-  if which mas >&-
+  if command -v mas >&-
   then
     mas outdated | while read -r app_id_and_name
     do
@@ -107,7 +107,7 @@ remove_previous_cask_versions() {
 }
 
 success() {
-  echo -e "\nI am yours, ${USER}\n"
+  printf "\\nI am yours, %s\\n\\n" "${USER}"
 }
 
 main

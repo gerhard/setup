@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for profile_config in ${HOME}/.profile.d/*
+for profile_config in "${HOME}"/.profile.d/*
 do
   # shellcheck source=/dev/null
   . "$profile_config"
