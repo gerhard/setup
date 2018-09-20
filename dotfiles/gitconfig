@@ -58,3 +58,5 @@
   template = ~/.gitcommit
   verbose = true
   gpgsign = true
+[rebase]
+  autostash = true
