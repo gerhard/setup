@@ -283,6 +283,8 @@ au FileType erlang setlocal shiftwidth=4
 
 au BufRead,BufNewFile *.ejs set ft=html
 
+au BufRead,BufNewFile *.service set ft=systemd
+
 " Run elm-format on save
 let g:elm_format_autosave = 1
 " <Leader>m	Compile the current buffer.
