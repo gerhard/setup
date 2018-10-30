@@ -5,7 +5,7 @@ alias g=git
 alias t="tig --all"
 
 unpair() {
-  if which git >&-
+  if command -v git >&-
   then
     (
       cd "$HOME/.setup" && git checkout dotfiles/gitconfig
