@@ -1,3 +1,2 @@
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
 defaults write com.apple.SoftwareUpdate AutomaticDownload -bool false
-defaults delete com.apple.SoftwareUpdate ScheduleFrequency
