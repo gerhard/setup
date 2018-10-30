@@ -5,10 +5,11 @@ rotate_ssh_key() {
   _add_new_ssh_key_to_keychain
   _copy_new_ssh_pub_key
   _start_rotations
-  _rotate_github
-  _rotate_bitbucket
-  _rotate_infrastructure
-  _rotate_nas
+  _github
+  _bitbucket
+  _digitalocean
+  _packet
+  _ssh_hosts
   _remove_old_ssh_key
   _end_rotations
 }
@@ -36,24 +37,32 @@ _start_rotations() {
   echo "Time to start rotating your old SSH keys, press enter as you make progress"
 }
 
-_rotate_github() {
+_github() {
   read -rp "
-I've rotated my SSH key on GitHub https://github.com/settings/keys " -n 1
+I added my new SSH key to GitHub https://github.com/settings/keys
+I removed my old SSH key from GitHub (maybe) " -n 1
 }
 
-_rotate_bitbucket() {
+_bitbucket() {
   read -rp "
-I've rotated my SSH key on Bitbucket https://bitbucket.org/account/user/gerhardlazu/ssh-keys " -n 1
+I added my new SSH key to Bitbucket https://bitbucket.org/account/user/gerhardlazu/ssh-keys/
+I removed my old SSH key from Bitbucket (maybe) " -n 1
 }
 
-_rotate_infrastructure() {
+_digitalocean() {
   read -rp "
-I've rotated my SSH key across the entire infrastructure " -n 1
+I added my new SSH key to DigitalOcean https://cloud.digitalocean.com/account/security?i=085bd5
+I removed my old SSH key from DigitalOcean (maybe) " -n 1
 }
 
-_rotate_nas() {
+_packet() {
   read -rp "
-I've rotated my SSH key on the NAS " -n 1
+I added my new SSH key to Packet https://app.packet.net/users/a4912cea-5687-495f-8401-489d7a69b5fd/ssh
+I removed my old SSH key from Packet (maybe) " -n 1
+}
+
+_ssh_hosts() {
+  awk '/^Host / { system("ssh-copy-id -i '"$(_new_ed25519_ssh_key)"' " $2) }' "$HOME/.ssh/config"
 }
 
 _remove_old_ssh_key() {
