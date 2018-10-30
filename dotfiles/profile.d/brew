@@ -1,0 +1,12 @@
+#!/bin/bash
+
+alias b=brew
+alias s="brew search"
+
+i() {
+  brew install "$@" || brew cask install "$@"
+}
+
+ri() {
+  brew reinstall "$@" || brew cask reinstall "$@"
+}
