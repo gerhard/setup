@@ -38,10 +38,14 @@
   interactive = auto
 [pack]
   threads = 0
+[fetch]
+  prune = true
+  pruneTags = true
 [pull]
   rebase = true
 [push]
   default = current
+  followTags = true
 [merge]
   tool = vimdiff
   conflictstyle = diff3
