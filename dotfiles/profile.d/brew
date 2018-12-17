@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias b=brew
+alias p=brew
 alias s="brew search"
 
 i() {
