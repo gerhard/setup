@@ -1,0 +1,2 @@
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+defaults write com.apple.SoftwareUpdate AutomaticDownload -bool true
