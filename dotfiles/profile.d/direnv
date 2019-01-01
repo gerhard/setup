@@ -1,5 +1,5 @@
 #!/bin/bash
 
 export DIRENV_LOG_FORMAT=""
-! which direnv >&- || eval "$(direnv hook bash)"
+! command -v direnv >&- || eval "$(direnv hook bash)"
 alias e=direnv
