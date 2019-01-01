@@ -1,3 +1,0 @@
-sudo mdutil -a -i off
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-sudo rm -rf /.Spotlight-V100/*
