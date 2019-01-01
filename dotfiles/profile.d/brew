@@ -10,3 +10,7 @@ i() {
 ri() {
   brew reinstall "$@" || brew cask reinstall "$@"
 }
+
+upg() {
+  brew upgrade "$@" || brew cask reinstall "$@"
+}
