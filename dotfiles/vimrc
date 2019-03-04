@@ -75,6 +75,8 @@ Plugin 'ElmCast/elm-vim'
 Plugin 'hashivim/vim-terraform.git'
 " Beautify JS, JSON, HTML & CSS files
 Plugin 'maksimr/vim-jsbeautify'
+" YAML syntax/indent plugin for Vim
+Plugin 'mrk21/yaml-vim'
 
 call vundle#end()
 
