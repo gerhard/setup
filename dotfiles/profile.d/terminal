@@ -13,3 +13,8 @@ r() {
     sleep 2
   done
 }
+
+# Learn to use fd instead of find
+# A simple, fast and user-friendly alternative to 'find'
+# https://github.com/sharkdp/fd
+alias find=fd
