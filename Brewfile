@@ -8,7 +8,9 @@ tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 tap "wagoodman/dive"
 
+brew "bats-core"
 brew "colordiff"
+brew "coreutils"
 brew "direnv"
 brew "dnsmasq", restart_service: true
 brew "erlang"
