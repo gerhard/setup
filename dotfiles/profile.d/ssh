@@ -6,9 +6,6 @@ rotate_ssh_key() {
   _copy_new_ssh_pub_key
   _start_rotations
   _github
-  _bitbucket
-  _digitalocean
-  _packet
   _ssh_hosts
   _remove_old_ssh_key
   _end_rotations
@@ -43,24 +40,6 @@ I added my new SSH key to GitHub https://github.com/settings/keys
 I removed my old SSH key from GitHub (maybe) " -n 1
 }
 
-_bitbucket() {
-  read -rp "
-I added my new SSH key to Bitbucket https://bitbucket.org/account/user/gerhardlazu/ssh-keys/
-I removed my old SSH key from Bitbucket (maybe) " -n 1
-}
-
-_digitalocean() {
-  read -rp "
-I added my new SSH key to DigitalOcean https://cloud.digitalocean.com/account/security?i=085bd5
-I removed my old SSH key from DigitalOcean (maybe) " -n 1
-}
-
-_packet() {
-  read -rp "
-I added my new SSH key to Packet https://app.packet.net/users/a4912cea-5687-495f-8401-489d7a69b5fd/ssh
-I removed my old SSH key from Packet (maybe) " -n 1
-}
-
 _ssh_hosts() {
   awk '/^Host / { system("ssh-copy-id -i '"$(_new_ed25519_ssh_key)"' " $2) }' "$HOME/.ssh/config"
 }
@@ -72,6 +51,6 @@ I've removed my old SSH key from SSH Agent & Keychain" -n 1
 
 _end_rotations() {
   echo "
-👏 Yet another successfull SSH key rotation 👏
+👏 Well done for rotating your SSH key and keeping it fresh & secure 👏
 "
 }
