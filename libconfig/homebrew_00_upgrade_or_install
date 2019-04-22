@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+if command -v brew >&-
+then
+  brew upgrade
+else
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
