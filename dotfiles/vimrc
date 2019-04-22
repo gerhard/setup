@@ -100,7 +100,7 @@ set clipboard=unnamed,unnamedplus
 " Controls the max width after which syntax highlighting stops being applied
 " Setting this to a high value might result in a sluggish vim
 set synmaxcol=300
-set ttyscroll=10
+set ttyfast
 set number
 set nowritebackup
 set noswapfile
@@ -124,8 +124,6 @@ let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols
 if filereadable( expand("$HOME/.vim/bundle/gruvbox/colors/gruvbox.vim") )
   colorscheme gruvbox
 endif
-
-set cryptmethod=blowfish2
 
 " Disable $( ) red highlights in shell scripts
 let g:is_posix = 1
@@ -280,6 +278,7 @@ au FileType concourse setlocal nofoldenable
 au BufRead,BufNewFile {Rakefile} set ft=ruby
 au BufRead,BufNewFile {Guardfile} set ft=ruby
 au BufRead,BufNewFile {Vagrantfile} set ft=ruby
+au BufRead,BufNewFile {Brewfile} set ft=ruby
 
 au FileType erlang setlocal shiftwidth=4
 
