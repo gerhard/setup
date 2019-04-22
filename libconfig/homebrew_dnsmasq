@@ -1,0 +1,42 @@
+#!/bin/bash -e
+
+dnsmasq_localhost_conf="$(brew --prefix)/etc/dnsmasq.d/localhost.conf"
+
+resolve_all_dot_localhost() {
+  if [ ! -f "$dnsmasq_localhost_conf" ]
+  then
+    echo "address=/.localhost/127.0.0.1" > "$dnsmasq_localhost_conf"
+    sudo brew services restart dnsmasq
+  fi
+}
+
+use_dnsmasq_resolver_for_dot_localhost() {
+  sudo mkdir -p /etc/resolver
+
+  if [ ! -f /etc/resolver/localhost ]
+  then
+    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/localhost'
+  fi
+}
+
+check_dot_localhost_resolver() {
+  scutil --dns |
+    grep --after-context 1 "domain.*localhost" |
+    grep -q "127.0.0.1"
+}
+
+check_dot_localhost_resolution() {
+  dig +short @127.0.0.1 "$USER".localhost |
+    grep -q "127.0.0.1"
+}
+
+check_dot_localhost_http() {
+  curl --silent --verbose "$USER.$USER".localhost 2>&1 |
+    grep -q "Trying.*127.0.0.1"
+}
+
+resolve_all_dot_localhost
+use_dnsmasq_resolver_for_dot_localhost
+check_dot_localhost_resolver
+check_dot_localhost_resolution
+check_dot_localhost_http
