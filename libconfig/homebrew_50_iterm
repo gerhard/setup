@@ -1,3 +1,0 @@
-#!/bin/bash -e
-
-open "${BASE_PATH}/gruvbox-dark.itermcolors"

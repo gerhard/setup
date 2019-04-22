@@ -10,9 +10,6 @@ main() {
   reload_modified_services
   os_x_software_update
   app_store_updates
-  update_package_sources
-  upgrade_installed_packages
-  upgrade_installed_casks
   update_vim_plugins
   cleanup
   success
@@ -62,23 +59,6 @@ app_store_updates() {
   fi
 }
 
-update_package_sources() {
-  brew update
-}
-
-upgrade_installed_packages() {
-  brew upgrade
-}
-
-upgrade_installed_casks() {
-  local cask
-
-  brew cask list | while read -r cask
-  do
-    brew cask install "$cask"
-  done
-}
-
 update_vim_plugins() {
   vim +PluginUpdate +PluginClean! +qall
 }
@@ -86,10 +66,13 @@ update_vim_plugins() {
 cleanup() {
   brew cleanup -s
   remove_previous_cask_versions
-  sudo pkill -INT softwareupdate
 }
 
 remove_previous_cask_versions() {
+  echo "Is this stil necessary?"
+  echo "Skipping temporarily to check if previous casks get left behind..."
+  return 0
+
   local cask version_to_delete
 
   (
@@ -106,7 +89,7 @@ remove_previous_cask_versions() {
 }
 
 success() {
-  printf "\\nI am yours, %s\\n\\n" "${USER}"
+  printf "\\nI am %s, 1setup from %s\\n\\n" "$HOSTNAME" "$(git remote get-url origin)"
 }
 
 main

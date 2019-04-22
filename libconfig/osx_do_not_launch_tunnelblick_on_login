@@ -1,1 +1,0 @@
-defaults write net.tunnelblick.tunnelblick doNotLaunchOnLogin -bool yes
