@@ -286,6 +286,13 @@ au BufRead,BufNewFile *.ejs set ft=html
 
 au BufRead,BufNewFile *.service set ft=systemd
 
+" Treat bats file like bash files
+" Disable sh shellchecker to avoid false errors
+" shellcheck will catch all errors
+au BufRead,BufNewFile *.bats set ft=bash |
+  \ let g:syntastic_sh_checkers = ['shellcheck']
+
+
 " Run elm-format on save
 let g:elm_format_autosave = 1
 " <Leader>m	Compile the current buffer.
