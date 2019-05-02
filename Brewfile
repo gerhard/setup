@@ -81,7 +81,6 @@ cask "sequel-pro"
 cask "sizeup"
 cask "skype"
 cask "vnc-viewer"
-cask "wireshark"
 cask "yubico-authenticator"
 cask "zoomus"
 
