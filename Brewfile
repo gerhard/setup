@@ -14,7 +14,7 @@ brew "colordiff"
 brew "coreutils"
 brew "cf-cli"
 brew "direnv"
-brew "dnsmasq", restart_service: true
+brew "dnsmasq"
 brew "erlang"
 brew "elixir"
 brew "fd"
