@@ -3,6 +3,7 @@
 * [humanism.sh](https://github.com/cyphunk/humanism.sh), subjective but sensible defaults for shell use. Ubuntu, OSX, FreeBSD.
 * [bash-sensible](https://github.com/mrzool/bash-sensible)
 * [strap](https://github.com/MikeMcQuaid/strap/blob/master/bin/strap.sh)
+* [awesome-dotfiles](https://github.com/webpro/awesome-dotfiles)
 
 ## vim
 
