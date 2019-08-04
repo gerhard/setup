@@ -38,4 +38,4 @@
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
 # https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
 
-export PS1='\[\033[93;1m\]\w\[\033[0m\] '
+export PS1='\[\033[93;1m\]\$\[\033[0m\] '
