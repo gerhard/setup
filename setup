@@ -65,27 +65,6 @@ update_vim_plugins() {
 
 cleanup() {
   brew cleanup -s
-  remove_previous_cask_versions
-}
-
-remove_previous_cask_versions() {
-  echo "Is this stil necessary?"
-  echo "Skipping temporarily to check if previous casks get left behind..."
-  return 0
-
-  local cask version_to_delete
-
-  (
-    cd /usr/local/Caskroom
-    for cask in *
-    do
-      # shellcheck disable=SC2012
-      ls -r "$cask" | tail -n +2 | while read -r version_to_delete
-      do
-        sudo rm -r "$cask/$version_to_delete"
-      done
-    done
-  )
 }
 
 success() {
