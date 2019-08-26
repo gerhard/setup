@@ -27,6 +27,6 @@ esh() {
 }
 
 edump() {
-  "$(find -L /usr/local/lib/erlang -name 'cdv')" \
+  "$(/usr/bin/find -L /usr/local/lib/erlang -name 'cdv')" \
     "${1:?first argument must be a valid erl_crash.dump file}"
 }
