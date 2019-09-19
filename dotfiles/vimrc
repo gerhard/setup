@@ -139,6 +139,7 @@ nnoremap <Leader>n :e .<CR>
 " Quick write, quit & write-quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :bd<CR>
 nnoremap <Leader>x :x<CR>
 
 " Git ncurses
