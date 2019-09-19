@@ -11,6 +11,7 @@ tap "universal-ctags/universal-ctags"
 tap "wagoodman/dive"
 
 brew "Arkweid/lefthook/lefthook"
+brew "bat"
 brew "bats-core"
 brew "colordiff"
 brew "coreutils"
