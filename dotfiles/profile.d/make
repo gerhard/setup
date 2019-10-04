@@ -2,3 +2,6 @@
 
 alias m=gmake
 alias boss=gmake
+
+# make is now GNU Make v4
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
