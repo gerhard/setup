@@ -1,6 +1,11 @@
 #!/bin/bash -e
 
-dnsmasq_localhost_conf="$(brew --prefix)/etc/dnsmasq.d/localhost.conf"
+dnsmasq_conf_dir="$(brew --prefix)/etc/dnsmasq.d"
+dnsmasq_localhost_conf="$dnsmasq_conf_dir/localhost.conf"
+
+ensure_dnsmasq_conf_dir_exists() {
+  mkdir -p "$dnsmasq_conf_dir"
+}
 
 resolve_all_dot_localhost() {
   if [ ! -f "$dnsmasq_localhost_conf" ]
@@ -35,6 +40,7 @@ check_dot_localhost_http() {
     grep -q "Trying.*127.0.0.1"
 }
 
+ensure_dnsmasq_conf_dir_exists
 resolve_all_dot_localhost
 use_dnsmasq_resolver_for_dot_localhost
 check_dot_localhost_resolver
