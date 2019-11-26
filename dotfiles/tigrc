@@ -13,6 +13,7 @@ bind main t !git revert %(commit)
 bind main i !git rebase -i %(commit)
 bind main B !git checkout -b %(prompt)
 bind main c !git checkout %(commit)
+bind main C !git cherry-pick -S -x -m 1 %(commit)
 
 bind main B !git checkout -b "%(prompt New branch name: )"
 bind refs B !git checkout -b "%(prompt New branch name: )" %(ref)
