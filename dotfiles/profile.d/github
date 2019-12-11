@@ -1,0 +1,13 @@
+#!/bin/bash
+
+GITHUB_USER=gerhard
+export GITHUB_USER
+
+if command -v lpass >&-
+then
+  if lpass status --quiet
+  then
+    GITHUB_PERSONAL_ACCESS_TOKEN="$(lpass show 14390611815915318 --notes)"
+    export GITHUB_PERSONAL_ACCESS_TOKEN
+  fi
+fi
