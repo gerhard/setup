@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+set -o pipefail
+
 dnsmasq_conf_dir="$(brew --prefix)/etc/dnsmasq.d"
 dnsmasq_localhost_conf="$dnsmasq_conf_dir/localhost.conf"
 
@@ -24,20 +26,34 @@ use_dnsmasq_resolver_for_dot_localhost() {
   fi
 }
 
+fail() {
+  echo "$*"
+  exit 1
+}
+
 check_dot_localhost_resolver() {
-  scutil --dns |
-    grep --after-context 1 "domain.*localhost" |
-    grep -q "127.0.0.1"
+  (
+    scutil --dns \
+    | grep --after-context 1 "domain.*localhost" \
+    | grep -q "127.0.0.1"
+  ) \
+  || fail ".localhost resolver is not configured correctly"
 }
 
 check_dot_localhost_resolution() {
-  dig +short @127.0.0.1 "$USER".localhost |
-    grep -q "127.0.0.1"
+  (
+    dig +short @127.0.0.1 "$USER".localhost \
+    | grep -q "127.0.0.1"
+  ) \
+  || fail "$USER.localhost is not resolving correctly"
 }
 
 check_dot_localhost_http() {
-  curl --silent --verbose "$USER.$USER".localhost 2>&1 |
-    grep -q "Trying.*127.0.0.1"
+  (
+    curl --silent --verbose "$USER.$USER".localhost 2>&1 \
+    | grep -vq "Could not resolve host"
+  ) \
+  || fail "$USER.$USER.localhost is not resolving correctly"
 }
 
 ensure_dnsmasq_conf_dir_exists
