@@ -5,7 +5,7 @@
   # Clone a repository including all submodules
   c = clone --recursive
   # Commit all changes
-  ca = !"git add -A && git commit -av"
+  ca = !"git add --all && git commit --all --verbose --signoff --gpg-sign"
   d = !"git duet --global"
 [apply]
   # Detect whitespace errors when applying a patch
@@ -64,3 +64,5 @@
   gpgsign = true
 [rebase]
   autostash = true
+[format]
+  signoff = true
