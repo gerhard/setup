@@ -9,7 +9,7 @@ set line-graphics = utf-8
 
 bind main f !git fetch
 bind main u !git pull
-bind main t !git revert %(commit)
+bind main t !git revert --gpg-sign --signoff %(commit)
 bind main i !git rebase --interactive %(commit)
 bind main B !git checkout -b %(prompt)
 bind main c !git checkout %(commit)
