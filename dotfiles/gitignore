@@ -3,4 +3,4 @@
 .bundle
 .vagrant
 tmp
-tags
+/tags$
