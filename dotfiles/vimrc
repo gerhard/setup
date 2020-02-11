@@ -51,6 +51,8 @@ Plugin 'rking/ag.vim'
 Plugin 'justinmk/molokai'
 " Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
+" Otimized Solarized color scheme
+Plugin 'lifepillar/vim-solarized8'
 " Alternate between relative numbering and absolute numbering
 Plugin 'myusuf3/numbers.vim'
 " Highlight colours in files
@@ -107,6 +109,8 @@ set noswapfile
 set nobackup
 set colorcolumn=80
 
+set termguicolors
+
 " Use the old regex engine. The new one is slowing down when editing .erl files
 set re=1
 
@@ -124,6 +128,9 @@ let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols
 if filereadable( expand("$HOME/.vim/bundle/gruvbox/colors/gruvbox.vim") )
   colorscheme gruvbox
 endif
+" if filereadable( expand("$HOME/.vim/bundle/vim-solarized8/colors/solarized8_high.vim") )
+"   colorscheme solarized8_high
+" endif
 
 " Disable $( ) red highlights in shell scripts
 let g:is_posix = 1
@@ -141,6 +148,10 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :bd<CR>
 nnoremap <Leader>x :x<CR>
+
+" Quick dark & light background
+nnoremap <Leader>l :set background=light<CR>
+nnoremap <Leader>d :set background=dark<CR>
 
 " Git ncurses
 nnoremap <Leader>g :!tig --all<CR>
