@@ -53,8 +53,6 @@ Plugin 'justinmk/molokai'
 Plugin 'morhetz/gruvbox'
 " Otimized Solarized color scheme
 Plugin 'lifepillar/vim-solarized8'
-" Alternate between relative numbering and absolute numbering
-Plugin 'myusuf3/numbers.vim'
 " Highlight colours in files
 Plugin 'ap/vim-css-color'
 " JS formatting & syntax
