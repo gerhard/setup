@@ -3,22 +3,6 @@
 # enable ls coloring
 export CLICOLOR=1
 
-r() {
-  while true
-  do
-    R="$("$@")"
-    clear
-    date
-    echo -e "$R"
-    sleep 2
-  done
-}
-
-# Learn to use fd instead of find
-# A simple, fast and user-friendly alternative to 'find'
-# https://github.com/sharkdp/fd
-alias find=fd
-
 # List info about this Mac
 # https://github.com/dylanaraps/neofetch
 alias mac=neofetch
