@@ -75,6 +75,9 @@ Plugin 'hashivim/vim-terraform.git'
 Plugin 'maksimr/vim-jsbeautify'
 " YAML syntax/indent plugin for Vim
 Plugin 'mrk21/yaml-vim'
+" Auto-format code
+" https://github.com/vim-autoformat/vim-autoformat
+Plugin 'vim-autoformat/vim-autoformat'
 
 call vundle#end()
 
