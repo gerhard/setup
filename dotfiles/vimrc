@@ -53,8 +53,6 @@ Plugin 'justinmk/molokai'
 Plugin 'morhetz/gruvbox'
 " Otimized Solarized color scheme
 Plugin 'lifepillar/vim-solarized8'
-" Highlight colours in files
-Plugin 'ap/vim-css-color'
 " JS formatting & syntax
 Plugin 'pangloss/vim-javascript'
 " Run Rspec specs from Vim
