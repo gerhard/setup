@@ -207,6 +207,10 @@ let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 " Allow following other files
 let g:syntastic_sh_shellcheck_args = "-x"
 
+" Integrate yamllint with syntastic
+" https://yamllint.readthedocs.io/en/stable/text_editors.html
+let g:syntastic_yaml_checkers = ['yamllint']
+
 " Comment lines
 noremap <Leader>/ :Commentary<CR>
 
