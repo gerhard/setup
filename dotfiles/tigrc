@@ -14,6 +14,7 @@ bind main i !git rebase --interactive %(commit)
 bind main B !git checkout -b %(prompt)
 bind main c !git checkout %(commit)
 bind main C !git cherry-pick --gpg-sign --mainline 1 -x %(commit)
+bind main T !git tag --force --sign "%(prompt Tag: )"
 
 bind main B !git checkout -b "%(prompt New branch name: )"
 bind refs B !git checkout -b "%(prompt New branch name: )" %(ref)
@@ -33,3 +34,7 @@ bind status c !git commit --gpg-sign --signoff
 bind status C !git duet-commit -S
 bind status a !git commit --amend --gpg-sign --signoff
 bind status x !git clean --force -d
+
+bind refs m !git branch -m "%(prompt Rename branch to: )"
+bind refs M !git merge -m %(branch)
+bind refs r !git rebase -m %(branch)
