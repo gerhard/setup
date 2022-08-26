@@ -6,3 +6,7 @@ export CLICOLOR=1
 # List info about this Mac
 # https://github.com/dylanaraps/neofetch
 alias mac=neofetch
+
+# Opt out of all console telemetry
+# https://consoledonottrack.com/
+export DO_NOT_TRACK=1
