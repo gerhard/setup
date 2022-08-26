@@ -25,8 +25,7 @@
   untracked = cyan
 [user]
   name = Gerhard Lazu
-  email = gerhard@lazu.co.uk
-  signingkey = 19B6FC415186F6136BC8A1B8A28DE70C9444D7A6
+  signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJrIgA2e197dXRzdNKIaI1XZxEpcPMh4kF5xRx/BCU+D gerhard@focker"
 [github]
   user = gerhard
 [credential]
@@ -66,3 +65,11 @@
   autostash = true
 [format]
   signoff = true
+[init]
+  defaultBranch = main
+[gpg]
+  format = ssh
+[tag]
+  gpgsign = true
+[gpg "ssh"]
+  allowedSignersFile = /Users/gerhard/.git_allowed_signers
