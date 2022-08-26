@@ -2,3 +2,5 @@
 
 alias d="docker"
 alias dc="docker-compose"
+
+export DOCKER_HOST=tcp://100.81.87.121:2375
