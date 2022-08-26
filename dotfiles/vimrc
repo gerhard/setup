@@ -67,8 +67,6 @@ Plugin 'vim-erlang/vim-erlang-tags'
 Plugin 'ekalinin/Dockerfile.vim'
 " Perform diffs on blocks of code
 Plugin 'AndrewRadev/linediff.vim'
-" Elm plugin for Vim
-Plugin 'ElmCast/elm-vim'
 " Basic vim/terraform integration
 Plugin 'hashivim/vim-terraform.git'
 " Beautify JS, JSON, HTML & CSS files
@@ -307,17 +305,6 @@ au BufRead,BufNewFile *.service set ft=systemd
 au BufRead,BufNewFile *.bats set ft=bash |
   \ let g:syntastic_sh_checkers = ['shellcheck']
 
-
-" Run elm-format on save
-let g:elm_format_autosave = 1
-" <Leader>m	Compile the current buffer.
-" <Leader>b	Compile the Main.elm file in the project.
-" <Leader>t	Runs the tests of the current buffer or 'tests/TestRunner'.
-" <Leader>r	Opens an elm repl in a subprocess.
-" <Leader>e	Shows the detail of the current error or warning.
-" <Leader>d	Shows the type and docs for the word under the cursor.
-" <Leader>w	Opens the docs web page for the word under the cur
-let g:elm_syntastic_show_warnings = 1
 
 let g:tagbar_type_ruby = {
     \ 'kinds' : [
