@@ -76,6 +76,10 @@ Plugin 'mrk21/yaml-vim'
 " Auto-format code
 " https://github.com/vim-autoformat/vim-autoformat
 Plugin 'vim-autoformat/vim-autoformat'
+" CUE syntax highlighting & auto-format
+Plugin 'jjo/vim-cue'
+" GraphQL file detection, syntax highlighting, and indentation
+Plugin 'jparise/vim-graphql'
 
 call vundle#end()
 
